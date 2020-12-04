@@ -24,7 +24,7 @@ Value DATAZONE (no|yes)
 
 
 Start
-  ^Aruba AP BSS Table -> BSSDTABLEETAILS
+  ^Aruba AP BSS Table -> BSSTABLEETAILS
 
 BSSTABLEDETAILS
   ^${BSS}\s+${ESS}\s+${PORT}\s+${IP}\s+${PHY}\s+${TYPE}\s+${CHANNEL}\/${EIRP}\/${MAXEIRP}\s+${CURRENTCLIENTS}\s+${APNAME}\s+${INTS}\s+${TOTT}\s+${MTU}\s+${ACLSTATE}\s+${ACL}\s+${FORWARDMODE}\s+${FLAGS}\s+${CLUSTER}\s+${ACTIVECLIENTS}\s+${STANDBYCLIENTS}\s+${DATAZONE} -> Record
