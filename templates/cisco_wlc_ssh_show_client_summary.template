@@ -1,0 +1,9 @@
+Value Filldown MACADDRESS (\w+:\w+:\w+:\w+:\w+:\w+)
+Value Filldown APNAME (\S+)
+Value Filldown SLOT (\d)
+Value Filldown STATUS (\S+)
+Value Filldown WLAN (\d+)
+
+
+Start
+  ^${MACADDRESS}\s+${APNAME}\s+${SLOT}\s+${STATUS}\s+${WLAN} -> Record
