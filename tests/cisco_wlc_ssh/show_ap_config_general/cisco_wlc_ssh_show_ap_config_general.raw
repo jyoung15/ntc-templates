@@ -1,27 +1,27 @@
-Cisco AP Identifier.............................. 111
-Cisco AP Name.................................... AP_test_01
-Country code..................................... IT  - Italy
-Regulatory Domain allowed by Country............. 802.11bg:-E     802.11a:-E
-AP Country code.................................. IT  - Italy
-AP Regulatory Domain............................. -E
+Cisco AP Identifier.............................. 115
+Cisco AP Name.................................... NMELPAHQCAP01
+Country code..................................... US  - United States
+Regulatory Domain allowed by Country............. 802.11bg:-A     802.11a:-AB
+AP Country code.................................. US - United States
+AP Regulatory Domain............................. 802.11bg:-A    802.11a:-B 
 Switch Port Number .............................. 8
-MAC Address...................................... 00:62:ec:01:02:03
-IP Address Configuration......................... Static IP assigned
-IP Address....................................... 10.1.1.1
+MAC Address...................................... 88:72:5d:61:49:19
+IP Address Configuration......................... DHCP
+IP Address....................................... 172.17.1.233
 IP NetMask....................................... 255.255.255.0
-Gateway IP Addr.................................. 10.1.1.254
-Domain........................................... 
-Name Server...................................... 192.168.1.1
+Gateway IP Addr.................................. 172.17.1.1
 NAT External IP Address.......................... None
 CAPWAP Path MTU.................................. 1485
 DHCP Release Override............................ Disabled 
-Telnet State..................................... Globally Enabled
+Telnet State..................................... Globally Disabled
 Ssh State........................................ Globally Enabled
-Cisco AP Location................................ default location
+NSI Ports State.................................. Globally Enabled
+Virtual IP Address............................... Not Configured
+Cisco AP Location................................ in front office
 Cisco AP Floor Label............................. 0
-Cisco AP Group Name.............................. GROUP_PE
-Primary Cisco Switch Name........................ WLC
-Primary Cisco Switch IP Address.................. 10.2.2.2
+Cisco AP Group Name.............................. melaspun_aps
+Primary Cisco Switch Name........................ NPEMPAHQ1WC01
+Primary Cisco Switch IP Address.................. 172.17.1.31
 Secondary Cisco Switch Name...................... 
 Secondary Cisco Switch IP Address................ Not Configured
 Tertiary Cisco Switch Name....................... 
@@ -34,48 +34,48 @@ Public Safety ................................... Disabled
 AP SubMode ...................................... Not Configured
 Rogue Detection ................................. Enabled
 AP Vlan Trunking ................................ Enabled  (Inherited) 
-AP Native Vlan ID: .............................. 1 (Inherited) 
+AP Native Vlan ID: .............................. 901 (Inherited) 
 Remote AP Debug ................................. Disabled
-Logging trap severity level ..................... emergencies
+Logging trap severity level ..................... informational
+KPI not configured .............................. 
 Logging syslog facility ......................... kern
-S/W  Version .................................... 8.2.164.0
-Boot  Version ................................... 15.2.4.5
-Mini IOS Version ................................ 8.2.100.0
-Stats Reporting Period .......................... 180
+S/W  Version .................................... 8.10.142.0
+Boot  Version ................................... 1.1.2.4
+Mini IOS Version ................................ 0.0.0.0
+Stats Reporting Period .......................... 30
 Stats Collection Mode ........................... normal
-Radio Core Mode ................................. Disabled
+Radio Core Mode ................................. Normal
 Slub Debug Mode ................................. Disabled
+Static Ip Failover .............................. Enabled
 LED State........................................ Enabled
 PoE Pre-Standard Switch.......................... Disabled
 PoE Power Injector MAC Addr...................... Disabled
-Power Type/Mode.................................. PoE/Medium Power (15.4 W)
-Number Of Slots.................................. 2 
-AP Model......................................... AIR-CAP2702E-E-K9
-AP Image......................................... C2700-K9W8-M
-IOS Version...................................... 15.3(3)JC9$
+Power Type/Mode.................................. PoE/Full Power
+Number Of Slots.................................. 3 
+AP Model......................................... AIR-AP3802I-B-K9
+AP Image......................................... AP3G3-K9W8-M
+IOS Version...................................... 8.10.142.0
 Reset Button..................................... Enabled
-AP Serial Number................................. FCEDDCCBBAA
+AP Serial Number................................. FXW2329N13Q
 AP Certificate Type.............................. Manufacture Installed
 AP LAG Configuration Status ..................... Disabled
-LAG Support for AP .............................. No
-Native Vlan Inheritance: ........................ AP
+LAG Support for AP .............................. Yes
+AP multicast mode :.............................. Disabled
+Native Vlan Inheritance: ........................ Group
 FlexConnect Vlan mode :.......................... Enabled
-        Native ID :..................................... 1
-        WLAN 13 :....................................... 3 (Wlan-Specific)
-        WLAN 46 :....................................... 13 (Wlan-Specific)
-        WLAN 70 :....................................... 254 (Wlan-Specific)
+	Native ID :..................................... 901
+	WLAN 1 :........................................ 3 (Wlan-Specific)
 FlexConnect VLAN ACL Mappings
-FlexConnect Group................................ Not a member of any group
+FlexConnect Group................................ flextest_group
 Group VLAN ACL Mappings
 
 
 Group VLAN Name to Id Mappings
- Template in Modified State - apply it to see mappings
 
 AP-Specific FlexConnect Policy ACLs :
 L2Acl Configuration ............................. Not Available
-FlexConnect Local-Split ACLs :
 
+FlexConnect Local-Split ACLs :
 WLAN ID   PROFILE NAME                       ACL                                 TYPE
 -------  --------------------------------   ---------------------------------   -------
 
@@ -83,42 +83,79 @@ WLAN ID   PROFILE NAME                       ACL                                
 
 WLAN ID   PROFILE NAME                         Central-Dhcp      DNS Override      Nat-Pat     Type
 -------  ---------------------------------    --------------    --------------    ---------   ------   
-  13       WLAN_13                                  False             False          False      Wlan  
-  46       WLAN_46                                  False             False          False      Wlan  
-  70       WLAN_70                                  False             False          False      Wlan
+  1       MELASPUN.X                               False             False          False      Wlan
 
 Flex AVC visibility Configurations.............. 
 
 WlanId  PROFILE NAME                     Inherit-level Visibility       Flex Avc-profile
 ------- -------------------------------- ------------- ---------- --------------------------------
-13         WLAN_13                          wlan-spec     disable    none                            
-46         WLAN_46                          wlan-spec     disable    none                            
-70         WLAN_70                          wlan-spec     enable     none                            
 
 FlexConnect Backup Auth Radius Servers :
  Primary Radius Server........................... Disabled
  Secondary Radius Server......................... Disabled
-AP User Mode..................................... AUTOMATIC
-AP User Name..................................... admin
+FlexConnect Radius/Local Auth Parameters :
+ Radius Retransmit Count......................... 3 (default)
+ Active Radius Timeout........................... 5 (default)
+
+AP User Mode................................... AUTOMATIC
+AP User Name..................................... QRSWXAN2
 AP Dot1x User Mode............................... Not Configured
 AP Dot1x User Name............................... Not Configured
-Cisco AP system logging host..................... 255.255.255.255
-AP Up Time....................................... 248 days, 07 h 09 m 00 s
-AP LWAPP Up Time................................. 165 days, 11 h 03 m 33 s
-Join Date and Time............................... Wed Jan 17 10:07:12 2018
-Join Taken Time.................................. 0 days, 00 h 05 m 36 s
-Memory Type...................................... DDR3
-Memory Size...................................... 11839 KBytes
-CPU Type......................................... PowerPC CPU at 800Mhz, revision number 0x2151
+AP Dot1x EAP Method.............................. EAP-FAST
+Cisco AP system logging host..................... 172.17.1.5
+AP Up Time....................................... 48 days, 22 h 20 m 50 s
+AP LWAPP Up Time................................. 21 days, 03 h 38 m 12 s
+Join Date and Time............................... Tue May 11 14:39:25 2021
+Join Taken Time.................................. 0 days, 00 h 00 m 25 s
+Unencrypted Data Keep Alive ..................... Enable
+AP broken antenna detection - Status ............ Not Supported
+Memory Type...................................... DDR4
+Memory Size...................................... 1028096 KBytes
+CPU Type.........................................  ARMv7 Processor rev 1 (v7l)
+
 Flash Type....................................... Onboard Flash
-Flash Size....................................... 1564 KBytes
+Flash Size....................................... 58368 KBytes
 GPS Present...................................... NO
 Ethernet Vlan Tag................................ Disabled
-Ethernet Port Duplex............................. Auto
+Ethernet Port Duplex............................. Full
 Ethernet Port Speed.............................. Auto
+Fabric support................................... Yes
 AP Link Latency.................................. Disabled
 Rogue Detection.................................. Enabled
-AP TCP MSS Adjust................................ Disabled
+AP TCP MSS Adjust................................ Enabled
+AP TCP MSS Size.................................. 1250 
+AP CAPWAP Control Port........................... 5264
+AP CAPWAP Data Port.............................. 5264
+AP WPA3 Capable.................................. Yes
+Beacons Tx from All supported Antennas........... Enabled 
 Hotspot Venue Group.............................. Unspecified
 Hotspot Venue Type............................... Unspecified
-      DNS server IP ............................. 192.168.1.1
+      DNS server IP ............................. Not Available
+Cisco TrustSec Config...:
+ CTS Global Override State....................... Disabled
+ Inline-Tagging.................................. Disabled
+ SGACL-Enforcement............................... Disabled
+Time Zone Config :
+ Time Zone State................................. Disabled
+ Time Zone Offset Hour........................... 00
+ Time Zone Offset Minute......................... 00
+NTP server status :
+ NTP Enable...................................... No
+Encryption SPIs (Unique Identifiers)
+ Hyperlocation................................... None
+
+
+ApVapId to Profile Name Mappings:
+
+APVAPID  WLANID  PROFILE NAME                    SLOT-A/B
+-------  ------  ------------------------------  --------
+1        1       MELASPUN.X                       1/0
+
+External Module:
+
+USB Module Type.................................. USB Module
+USB Module Status................................ Enabled
+USB Module Operational State..................... Not Detected
+
+Service 		     SubService   		  CMX Server
+------------  		 ----------------    		---------------

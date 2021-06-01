@@ -71,4 +71,13 @@ Start
   ^\d+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
   ^\d+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
   ^FlexConnect\s+Backup\s+Auth
+  # ***** all items below are placeholders/TODO *****
+  ^\s*Time Zone
+  ^\s*NTP
+  ^Encryption SPIs
+  ^\s*Hyperlocation
+  ^\s*(?i:apvapid)
+  ^FlexConnect Radius/Local Auth Parameters
+  ^External Module:
+  ^Service\s+SubService\s+CMX Server
   ^. -> Error
