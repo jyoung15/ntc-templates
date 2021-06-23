@@ -267,6 +267,7 @@ cisco_wlc_ssh_show_ap_cdp_neigh_all.template, .*, cisco_wlc_ssh, show ap cdp nei
 cisco_wlc_ssh_show_ap_config_general.template, .*, cisco_wlc_ssh, sh[[ow]] ap con[[fig]] ge[[neral]]
 cisco_wlc_ssh_show_ap_summary.template, .*, cisco_wlc_ssh, sh[[ow]] ap sum[[mary]]
 cisco_wlc_ssh_show_sysinfo.template, .*, cisco_wlc_ssh, sh[[ow]] sysi[[nfo]]
+cisco_wlc_ssh_show_wlan_apgroups.template, .*, cisco_wlc_ssh, show wlan apgroups
 cisco_wlc_ssh_show_wlan_summary.template, .*, cisco_wlc_ssh, show wlan summary
 
 cisco_xr_show_controllers_fabric_fia_errors_ingress_location.template, .*, cisco_xr, sh[[ow]] contr[[ollers]] fabric fi[[a]] err[[ors]] in[[gress]] loc[[ation]]

@@ -1,0 +1,24 @@
+Value Key,Required GROUP_NAME ([^\r\n]+)
+Value GROUP_DESCRIPTION ([^\r\n]+)
+Value NAS_ID ((?!none)[^\r\n]+)
+Value RF_PROFILE24 ((?!<none>)[^\r\n]+)
+Value RF_PROFILE5 ((?!<none>)[^\r\n]+)
+Value List WLAN_ID (\d+)
+Value List WLAN_INTERFACE (\S+)
+
+Start
+  ^Site Name\.+\s+${GROUP_NAME} -> ApGroup
+
+ApGroup
+  ^Site Description\.+\s+${GROUP_DESCRIPTION}
+  ^NAS-identifier\.+\s+${NAS_ID}
+  ^2\.4 GHz band\.+\s+${RF_PROFILE24}
+  ^5 GHz band\.+\s+${RF_PROFILE5}
+  ^WLAN ID -> Wlans
+
+Wlans
+  ^\s*${WLAN_ID}\s+${WLAN_INTERFACE}
+  ^\s*Lan Port configs -> Record Start
+  ^AP Name -> Record Start
+
+# TODO: APs in group
