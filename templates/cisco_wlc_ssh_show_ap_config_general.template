@@ -53,31 +53,3 @@ Start
   ^AP\s+LWAPP\s+Up\s+Time\.*\s+${LWAPP_UPTIME}\s*$$
   ^Join\s+Date\s+and\s+Time\.*\s+${JOIN_DATE_TIME}\s*$$
   ^Join\s+Taken\s+Time\.*\s+${JOIN_TAKEN_TIME}\s*$$ -> Record
-  ^.+\.+
-  ^-+
-  ^\s*$$
-  ^\S+\s+VLAN.+Mappings
-  ^\s+Template\s+in\s+
-  ^AP-Specific\s+FlexConnect
-  ^FlexConnect\s+Local-Split
-  ^WLAN\s+ID\s+PROFILE\s+NAME\s+ACL\s+TYPE\s*$$
-  ^\s+Flexconnect\s+Central-Dhcp
-  ^WLAN\s+ID\s+PROFILE NAME\s+Central-Dhcp\s+DNS\s+Override\s+Nat-Pat\s+Type\s*$$
-  ^\s+\d+\s+\S+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
-  ^\s+\d+\s+\S+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
-  ^\s+\d+\s+\S+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
-  ^WlanId\s+PROFILE NAME\s+Inherit-level\s+Visibility\s+Flex\s+Avc-profile\s*$$
-  ^\d+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
-  ^\d+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
-  ^\d+\s+\S+\s+\S+\s+\S+\s+\S+\s*$$
-  ^FlexConnect\s+Backup\s+Auth
-  # ***** all items below are placeholders/TODO *****
-  ^\s*Time Zone
-  ^\s*NTP
-  ^Encryption SPIs
-  ^\s*Hyperlocation
-  ^\s*(?i:apvapid)
-  ^FlexConnect Radius/Local Auth Parameters
-  ^External Module:
-  ^Service\s+SubService\s+CMX Server
-  ^. -> Error
