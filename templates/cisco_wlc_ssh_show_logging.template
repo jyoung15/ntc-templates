@@ -1,0 +1,24 @@
+Value List SYSLOG_HOSTS (\d+\.\d+\.\d+\.\d+)
+Value BUFFER_LOG_LEVEL (\w+)
+Value BUFFER_DEBUGS (\w+)
+Value CONSOLE_LOG_LEVEL (\w+)
+Value CONSOLE_DEBUGS (\w+)
+
+Start
+  ^Logging to buffer -> Buffer
+  ^Logging to console -> Console
+  ^Logging to syslog -> Syslog
+
+Buffer
+  ^\s*- Logging filter level\s*\.+ ${BUFFER_LOG_LEVEL}
+  ^\s*- Logging of debug messages to buffer\s*\.+ ${BUFFER_DEBUGS}
+  ^Logging to console -> Console
+
+Console
+  ^\s*- Logging filter level\s*\.+ ${CONSOLE_LOG_LEVEL}
+  ^\s*- Logging of debug messages to console\s*\.+ ${CONSOLE_DEBUGS}
+  ^Logging to syslog -> Syslog
+
+Syslog
+  ^\s*- Host \d\s*\.+ ${SYSLOG_HOSTS}
+  ^\s*Logging buffer \(\d+ logged, \d+ dropped\) -> EOF
