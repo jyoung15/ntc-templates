@@ -3,6 +3,8 @@ Value BUFFER_LOG_LEVEL (\w+)
 Value BUFFER_DEBUGS (\w+)
 Value CONSOLE_LOG_LEVEL (\w+)
 Value CONSOLE_DEBUGS (\w+)
+Value SYSLOG_LOG_LEVEL (\w+)
+Value SYSLOG_DEBUGS (\w+)
 
 Start
   ^Logging to buffer -> Buffer
@@ -20,5 +22,7 @@ Console
   ^Logging to syslog -> Syslog
 
 Syslog
+  ^\s*- Logging filter level\s*\.+ ${SYSLOG_LOG_LEVEL}
+  ^\s*- Logging of debug messages to syslog\s*\.+ ${SYSLOG_DEBUGS}
   ^\s*- Host \d\s*\.+ ${SYSLOG_HOSTS}
   ^\s*Logging buffer \(\d+ logged, \d+ dropped\) -> EOF

@@ -270,6 +270,8 @@ cisco_wlc_ssh_show_sysinfo.template, .*, cisco_wlc_ssh, sh[[ow]] sysi[[nfo]]
 cisco_wlc_ssh_show_wlan_apgroups.template, .*, cisco_wlc_ssh, show wlan apgroups
 cisco_wlc_ssh_show_wlan_summary.template, .*, cisco_wlc_ssh, show wlan summary
 cisco_wlc_ssh_show_logging.template, .*, cisco_wlc_ssh, show logging
+cisco_wlc_ssh_show_interface_detailed.template, .*, cisco_wlc_ssh, show interface detailed
+cisco_wlc_ssh_show_radius_summary.template, .*, cisco_wlc_ssh, show radius summary
 
 cisco_xr_show_controllers_fabric_fia_errors_ingress_location.template, .*, cisco_xr, sh[[ow]] contr[[ollers]] fabric fi[[a]] err[[ors]] in[[gress]] loc[[ation]]
 cisco_xr_show_controllers_fabric_fia_drops_ingress_location.template, .*, cisco_xr, sh[[ow]] contr[[ollers]] fabric fi[[a]] dr[[ops]] in[[gress]] loc[[ation]]

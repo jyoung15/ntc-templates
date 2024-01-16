@@ -1,0 +1,15 @@
+Value INTERFACE_NAME (.+)
+Value MAC ([0-9a-fA-F:]+)
+Value IP (\d+\.\d+\.\d+\.\d+)
+Value DNS_NAME (.+)
+Value AP_MANAGER (Yes|No)
+Value GUEST (Yes|No)
+
+
+Start
+  ^Interface Name\s*\.+ ${INTERFACE_NAME}
+  ^MAC Address\s*\.+ ${MAC}
+  ^IP Address\s*\.+ ${IP}
+  ^Virtual DNS Host Name.\s*\.+ ${DNS_NAME}
+  ^AP Manager\s*\.+ ${AP_MANAGER}
+  ^Guest Interface\s*\.+ ${GUEST}
