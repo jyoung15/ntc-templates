@@ -1,0 +1,181 @@
+# TODO: finish matching all values
+Value WLAN_ID (\d+)
+Value WLAN_PROFILE (.+)
+Value SSID (.+)
+Value STATUS (Enabled|Disabled)
+Value MAC_FILTERING (Enabled|Disabled)
+Value BROADCAST_SSID (Enabled|Disabled)
+Value AAA_OVERRIDE (Enabled|Disabled)
+Value RADIUS_PROFILING (Enabled|Disabled)
+Value RADIUS_DHCP_PROFILING (Enabled|Disabled)
+Value RADIUS_HTTP_PROFILING (Enabled|Disabled)
+Value LOCAL_PROFILING (Enabled|Disabled)
+Value LOCAL_DHCP_PROFILING (Enabled|Disabled)
+Value LOCAL_HTTP_PROFILING (Enabled|Disabled)
+Value RADIUS_NAC (Enabled|Disabled)
+Value SNMP_NAC (Enabled|Disabled)
+Value EXCLUSIONLIST_TIMEOUT (\d+)
+Value SESSION_TIMEOUT (\d+)
+Value USER_IDLE_TIMEOUT (\d+)
+Value SLEEP_CLIENT (.+)
+Value WEB_AUTH_CAPTIVE_BYPASS (.+)
+Value NAS_ID (.+)
+Value INTERFACE (.+)
+Value WLAN_ACL_IPV4 (.+)
+Value WLAN_ACL_IPV6 (.+)
+Value WLAN_ACL_LAYER2 (.+)
+Value WLAN_ACL_URL (.+)
+Value MDNS_STATUS (Enabled|Disabled)
+Value MDNS_PROFILE (.+)
+Value DHCP_SERVER (.+)
+Value DHCP_REQD (.+)
+Value QOS_PROFILE (.+)
+Value RATE_LIM_SSID_AVG_UP (\d+)
+Value RATE_LIM_SSID_AVG_DN (\d+)
+Value RATE_LIM_SSID_AVG_RT_UP (\d+)
+Value RATE_LIM_SSID_AVG_RT_DN (\d+)
+Value RATE_LIM_SSID_BST_UP (\d+)
+Value RATE_LIM_SSID_BST_DN (\d+)
+Value RATE_LIM_SSID_BST_RT_UP (\d+)
+Value RATE_LIM_SSID_BST_RT_DN (\d+)
+Value RATE_LIM_CLNT_AVG_UP (\d+)
+Value RATE_LIM_CLNT_AVG_DN (\d+)
+Value RATE_LIM_CLNT_AVG_RT_UP (\d+)
+Value RATE_LIM_CLNT_AVG_RT_DN (\d+)
+Value RATE_LIM_CLNT_BST_UP (\d+)
+Value RATE_LIM_CLNT_BST_DN (\d+)
+Value RATE_LIM_CLNT_BST_RT_UP (\d+)
+Value RATE_LIM_CLNT_BST_RT_DN (\d+)
+Value SCAN_DEFER_PRI (.+)
+Value SCAN_DEFER_TIME (\d+)
+Value WMM (.+)
+Value PASSIVE_CLIENT (Enabled|Disabled)
+Value PEER_TO_PEER (.+)
+Value RADIO_POLICY (.+)
+Value DTIM_11A (\d+)
+Value DTIM_11B (\d+)
+Value MU_MIMO (Enabled|Disabled)
+Value DOT11_AUTH (.+)
+Value FT_SUPPORT (.+)
+Value STATIC_WEP (Enabled|Disabled)
+Value DOT1X (Enabled|Disabled)
+Value WPA_FLAG (Enabled|Disabled)
+Value WPA (Enabled|Disabled)
+Value WPA2 (Enabled|Disabled)
+Value WPA3 (Enabled|Disabled)
+Value TKIP (Enabled|Disabled)
+Value CCMP128_AES (Enabled|Disabled)
+Value CCMP256 (Enabled|Disabled)
+Value GCMP128 (Enabled|Disabled)
+Value GCMP256 (Enabled|Disabled)
+Value WPA_DOT1X (Enabled|Disabled)
+Value WPA_PSK (Enabled|Disabled)
+Value WPA_CCKM (Enabled|Disabled)
+Value WPA_FT_1X (Enabled|Disabled)
+Value WPA_FT_PSK (Enabled|Disabled)
+Value WPA_OWE (Enabled|Disabled)
+Value WPA_SAE (Enabled|Disabled)
+Value FT_OVER_DS (Enabled|Disabled)
+Value CKIP (Enabled|Disabled)
+Value WEB_AUTH (Enabled|Disabled)
+Value WEB_PASSTHROUGH (Enabled|Disabled)
+Value FLEXCONNECT_LOCAL_SWITCHING (Enabled|Disabled)
+Value CLIENT_MFP (.+)
+Value PMF (Enabled|Disabled)
+Value AVC_VISIBILITY (Enabled|Disabled)
+Value AVC_PROFILE (.+)
+Value OPT_ROAMING (Enabled|Disabled)
+Value DOT11K_NEIGHBOR_LIST (Enabled|Disabled)
+Value DOT11K_NEIGHBOR_LIST_DUAL_BAND (Enabled|Disabled)
+Value DOT11V_DMS (Enabled|Disabled)
+Value DOT11V_BSS_TRANS (Enabled|Disabled)
+Value DOT11V_BSS_TRANS_DIS_IMM (Enabled|Disabled)
+Value DOT11V_BSS_TRANS_NEIGH_DUAL (Enabled|Disabled)
+Value BAND_SELECT (Enabled|Disabled)
+Value LOAD_BALANCING (Enabled|Disabled)
+Value List RADIUS_AUTH_IP (\d+\.\d+\.\d+\.\d+)
+Value List RADIUS_AUTH_PORT (\d+)
+Value List RADIUS_ACCT_IP (\d+\.\d+\.\d+\.\d+)
+Value List RADIUS_ACCT_PORT (\d+)
+Value RADIUS_ACCT_INTERIM_UPDATE (.+)
+Value RADIUS_ACCT_INTERIM_UPDATE_INTVL (\d+)
+Value List ANCHOR_WLAN_ID (\d+)
+Value List ANCHOR_IP (\d+\.\d+\.\d+\.\d+)
+Value List ANCHOR_STATUS (Up|Down)
+Value List ANCHOR_PRIORITY (\d+)
+
+
+Start
+  ^WLAN Identifier\s*\.+ ${WLAN_ID}
+  ^Profile Name\s*\.+ ${WLAN_PROFILE}
+  ^Network Name \(SSID\)\s*\.+ ${SSID}
+  ^Status\s*\.+ ${STATUS}
+  ^MAC Filtering\s*\.+ ${MAC_FILTERING}
+  ^Broadcast SSID\s*\.+ ${BROADCAST_SSID}
+  ^AAA Policy Override\s*\.+ ${AAA_OVERRIDE}
+  ^Client Profiling Status -> ClientProfiling
+  ^Exclusionlist Timeout\s*\.+ ${EXCLUSIONLIST_TIMEOUT} seconds
+  ^Session Timeout\s*\.+ ${SESSION_TIMEOUT} seconds
+  ^User Idle Timeout\s*\.+ ${USER_IDLE_TIMEOUT} seconds
+  ^Sleep Client\s*\.+ ${SLEEP_CLIENT}
+  ^Web Auth Captive Bypass Mode\s*\.+ ${WEB_AUTH_CAPTIVE_BYPASS}
+  ^NAS-identifier\s*\.+ ${NAS_ID}
+  ^Interface\s*\.+ ${INTERFACE}
+  ^WLAN IPv4 ACL\s*\.+ ${WLAN_ACL_IPV4}
+  ^WLAN IPv6 ACL\s*\.+ ${WLAN_ACL_IPV6}
+  ^WLAN Layer2 ACL\s*\.+ ${WLAN_ACL_LAYER2}
+  ^WLAN URL ACL\s*\.+ ${WLAN_ACL_URL}
+  ^mDNS Status\s*\.+ ${MDNS_STATUS}
+  ^mDNS Profile Name\s*\.+ ${MDNS_PROFILE}
+  ^DHCP Server\s*\.+ ${DHCP_SERVER}
+  ^DHCP Address Assignment Required\s*\.+ ${DHCP_REQD}
+  ^Quality of Service\s*\.+ ${QOS_PROFILE}
+  ^Per-SSID Rate Limits -> RateLimPerSSID
+  ^Per-Client Rate Limits -> RateLimPerClient
+  ^Peer-to-Peer Blocking Action\s*\.+ ${PEER_TO_PEER}
+  ^Radio Policy\s*\.+ ${RADIO_POLICY}
+  ^DTIM period for 802.11a radio\s*\.+ ${DTIM_11A}
+  ^DTIM period for 802.11b radio\s*\.+ ${DTIM_11B}
+  ^Radius Servers -> Radius
+  ^\s+FlexConnect Local Switching\s*\.+ ${FLEXCONNECT_LOCAL_SWITCHING}
+  ^Band Select\s*\.+ ${BAND_SELECT}
+  ^Load Balancing\s*\.+ ${LOAD_BALANCING}
+  ^\s*Mobility Anchor List -> Anchors
+
+ClientProfiling
+  ^\s+Radius Profiling\s*\.+ ${RADIUS_PROFILING} -> RadiusProfiling
+  ^\s+Local Profiling\s*\.+ ${LOCAL_PROFILING} -> LocalProfiling
+  ^\s+Radius-NAC State\s*\.+ ${RADIUS_NAC}
+  ^\s+SNMP-NAC State\s*\.+ ${SNMP_NAC}
+  ^\s+Quarantine VLAN -> Start
+
+RadiusProfiling
+  ^\s+DHCP\s*\.+ ${RADIUS_DHCP_PROFILING}
+  ^\s+HTTP\s*\.+ ${RADIUS_HTTP_PROFILING} -> ClientProfiling
+
+LocalProfiling
+  ^\s+DHCP\s*\.+ ${LOCAL_DHCP_PROFILING}
+  ^\s+HTTP\s*\.+ ${LOCAL_HTTP_PROFILING} -> ClientProfiling
+
+Radius
+  ^\s+Authentication\s*\.+ ${RADIUS_AUTH_IP} ${RADIUS_AUTH_PORT}
+  ^\s+Accounting\s*\.+ ${RADIUS_ACCT_IP} ${RADIUS_ACCT_PORT}
+  ^\s+Interim Update\s*\.+ ${RADIUS_ACCT_INTERIM_UPDATE}
+  ^\s+Interim Update Interval\s*\.+ ${RADIUS_ACCT_INTERIM_UPDATE_INTVL}
+  ^\s+Dynamic Interface Priority -> Start
+
+Anchors
+  ^\s*${ANCHOR_WLAN_ID}\s+${ANCHOR_IP}\s+${ANCHOR_STATUS}\s+${ANCHOR_PRIORITY}
+  ^\s*$$ -> Start
+
+RateLimPerSSID
+  ^Average Data Rate\s*\.+\s+${RATE_LIM_SSID_AVG_UP}\s+${RATE_LIM_SSID_AVG_DN}
+  ^Average Realtime Data Rate\s*\.+\s+${RATE_LIM_SSID_AVG_RT_UP}\s+${RATE_LIM_SSID_AVG_RT_DN}
+  ^Burst Data Rate\s*\.+\s+${RATE_LIM_SSID_BST_UP}\s+${RATE_LIM_SSID_BST_DN}
+  ^Burst Realtime Data Rate\s*\.+\s+${RATE_LIM_SSID_BST_RT_UP}\s+${RATE_LIM_SSID_BST_RT_DN} -> Start
+
+RateLimPerClient
+  ^Average Data Rate\s*\.+\s+${RATE_LIM_CLNT_AVG_UP}\s+${RATE_LIM_CLNT_AVG_DN}
+  ^Average Realtime Data Rate\s*\.+\s+${RATE_LIM_CLNT_AVG_RT_UP}\s+${RATE_LIM_CLNT_AVG_RT_DN}
+  ^Burst Data Rate\s*\.+\s+${RATE_LIM_CLNT_BST_UP}\s+${RATE_LIM_CLNT_BST_DN}
+  ^Burst Realtime Data Rate\s*\.+\s+${RATE_LIM_CLNT_BST_RT_UP}\s+${RATE_LIM_CLNT_BST_RT_DN} -> Start
