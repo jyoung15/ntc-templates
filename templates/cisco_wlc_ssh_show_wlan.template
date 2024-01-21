@@ -1,8 +1,8 @@
 # TODO: finish matching all values
-Value WLAN_ID (\d+)
+Value Key,Required WLAN_ID (\d+)
 Value WLAN_PROFILE (.+)
-Value SSID (.+)
-Value STATUS (Enabled|Disabled)
+Value Required SSID (.+)
+Value Required STATUS (Enabled|Disabled)
 Value MAC_FILTERING (Enabled|Disabled)
 Value BROADCAST_SSID (Enabled|Disabled)
 Value AAA_OVERRIDE (Enabled|Disabled)
@@ -99,6 +99,8 @@ Value List RADIUS_ACCT_IP (\d+\.\d+\.\d+\.\d+)
 Value List RADIUS_ACCT_PORT (\d+)
 Value RADIUS_ACCT_INTERIM_UPDATE (.+)
 Value RADIUS_ACCT_INTERIM_UPDATE_INTVL (\d+)
+Value RADIUS_AUTH_SERVERS (Global Servers|Disabled)
+Value RADIUS_ACCT_SERVERS (Global Servers|Disabled)
 Value List ANCHOR_WLAN_ID (\d+)
 Value List ANCHOR_IP (\d+\.\d+\.\d+\.\d+)
 Value List ANCHOR_STATUS (Up|Down)
@@ -141,6 +143,7 @@ Start
   ^Band Select\s*\.+ ${BAND_SELECT}
   ^Load Balancing\s*\.+ ${LOAD_BALANCING}
   ^\s*Mobility Anchor List -> Anchors
+  ^U3-Reporting Interval -> Record
 
 ClientProfiling
   ^\s+Radius Profiling\s*\.+ ${RADIUS_PROFILING} -> RadiusProfiling
@@ -159,7 +162,9 @@ LocalProfiling
 
 Radius
   ^\s+Authentication\s*\.+ ${RADIUS_AUTH_IP} ${RADIUS_AUTH_PORT}
+  ^\s+Authentication\s*\.+ ${RADIUS_AUTH_SERVERS}
   ^\s+Accounting\s*\.+ ${RADIUS_ACCT_IP} ${RADIUS_ACCT_PORT}
+  ^\s+Accounting\s*\.+ ${RADIUS_ACCT_SERVERS}
   ^\s+Interim Update\s*\.+ ${RADIUS_ACCT_INTERIM_UPDATE}
   ^\s+Interim Update Interval\s*\.+ ${RADIUS_ACCT_INTERIM_UPDATE_INTVL}
   ^\s+Dynamic Interface Priority -> Start
