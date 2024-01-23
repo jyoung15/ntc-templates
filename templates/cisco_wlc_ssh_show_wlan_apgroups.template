@@ -5,6 +5,7 @@ Value RF_PROFILE24 ((?!<none>)[^\r\n]+)
 Value RF_PROFILE5 ((?!<none>)[^\r\n]+)
 Value List WLAN_ID (\d+)
 Value List WLAN_INTERFACE (\S+)
+Value List APS (\S+)
 
 Start
   ^Site Name\.+\s+${GROUP_NAME} -> ApGroup
@@ -15,10 +16,12 @@ ApGroup
   ^2\.4 GHz band\.+\s+${RF_PROFILE24}
   ^5 GHz band\.+\s+${RF_PROFILE5}
   ^WLAN ID -> Wlans
+  ^AP Name -> APs
 
 Wlans
   ^\s*${WLAN_ID}\s+${WLAN_INTERFACE}
-  ^\s*Lan Port configs -> Record Start
-  ^AP Name -> Record Start
+  ^\s*$$ -> ApGroup
 
-# TODO: APs in group
+APs
+  ^${APS}\s+\d
+  ^\s*$$ -> Record Start
