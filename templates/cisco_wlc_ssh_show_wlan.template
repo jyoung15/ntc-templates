@@ -1,4 +1,3 @@
-# TODO: finish matching all values
 Value Key,Required WLAN_ID (\d+)
 Value WLAN_PROFILE (.+)
 Value Required SSID (.+)
@@ -16,7 +15,7 @@ Value RADIUS_NAC (Enabled|Disabled)
 Value SNMP_NAC (Enabled|Disabled)
 Value EXCLUSIONLIST_TIMEOUT (\d+)
 Value SESSION_TIMEOUT (\d+)
-Value USER_IDLE_TIMEOUT (\d+)
+Value USER_IDLE_TIMEOUT (.+)
 Value SLEEP_CLIENT (.+)
 Value WEB_AUTH_CAPTIVE_BYPASS (.+)
 Value NAS_ID (.+)
@@ -70,6 +69,7 @@ Value GCMP128 (Enabled|Disabled)
 Value GCMP256 (Enabled|Disabled)
 Value WPA_DOT1X (Enabled|Disabled)
 Value WPA_PSK (Enabled|Disabled)
+Value WPA_PSK_SHA2 (Enabled|Disabled)
 Value WPA_CCKM (Enabled|Disabled)
 Value WPA_FT_1X (Enabled|Disabled)
 Value WPA_FT_PSK (Enabled|Disabled)
@@ -88,6 +88,7 @@ Value OPT_ROAMING (Enabled|Disabled)
 Value DOT11K_NEIGHBOR_LIST (Enabled|Disabled)
 Value DOT11K_NEIGHBOR_LIST_DUAL_BAND (Enabled|Disabled)
 Value DOT11V_DMS (Enabled|Disabled)
+Value DOT11V_MAX_IDLE (Enabled|Disabled)
 Value DOT11V_BSS_TRANS (Enabled|Disabled)
 Value DOT11V_BSS_TRANS_DIS_IMM (Enabled|Disabled)
 Value DOT11V_BSS_TRANS_NEIGH_DUAL (Enabled|Disabled)
@@ -118,7 +119,7 @@ Start
   ^Client Profiling Status -> ClientProfiling
   ^Exclusionlist Timeout\s*\.+ ${EXCLUSIONLIST_TIMEOUT} seconds
   ^Session Timeout\s*\.+ ${SESSION_TIMEOUT} seconds
-  ^User Idle Timeout\s*\.+ ${USER_IDLE_TIMEOUT} seconds
+  ^User Idle Timeout\s*\.+ ${USER_IDLE_TIMEOUT}
   ^Sleep Client\s*\.+ ${SLEEP_CLIENT}
   ^Web Auth Captive Bypass Mode\s*\.+ ${WEB_AUTH_CAPTIVE_BYPASS}
   ^NAS-identifier\s*\.+ ${NAS_ID}
@@ -142,8 +143,53 @@ Start
   ^\s+FlexConnect Local Switching\s*\.+ ${FLEXCONNECT_LOCAL_SWITCHING}
   ^Band Select\s*\.+ ${BAND_SELECT}
   ^Load Balancing\s*\.+ ${LOAD_BALANCING}
+  ^Scan Defer Priority\s*\.+ ${SCAN_DEFER_PRI}
+  ^Scan Defer Time\s*\.+ ${SCAN_DEFER_TIME}
+  ^WMM\s*\.+ ${WMM}
+  ^Passive Client Feature\s*\.+ ${PASSIVE_CLIENT}
+  ^Mu-Mimo\s*\.+ ${MU_MIMO}
+  ^\s+802.11 Authentication:?\s*\.+ ${DOT11_AUTH}
+  ^\s+FT Support\s*\.+ ${FT_SUPPORT}
+  ^\s+Static WEP Keys\s*\.+ ${STATIC_WEP}
+  ^\s+802.1X\s*\.+ ${DOT1X}
+  ^\s+Wi-Fi Protected Access.*\.+ ${WPA_FLAG}
+  ^\s+WPA\D.*\.+ ${WPA}
+  ^\s+WPA2.*\.+ ${WPA2}
+  ^\s+WPA3.*\.+ ${WPA3}
+  ^\s+TKIP Cipher\s*\.+ ${TKIP}
+  ^\s+CCMP128/AES Cipher\s*\.+ ${CCMP128_AES}
+  ^\s+CCMP256 Cipher\s*\.+ ${CCMP256}
+  ^\s+GCMP128 Cipher\s*\.+ ${GCMP128}
+  ^\s+GCMP256 Cipher\s*\.+ ${GCMP256}
+  ^\s+Auth Key Management -> AKM
+  ^\s+FT Over-The-DS mode\s*\.+ ${FT_OVER_DS}
+  ^\s+CKIP\s*\.+ ${CKIP}
+  ^\s+Web Based Authentication\s*\.+ ${WEB_AUTH}
+  ^\s+Web-Passthrough\s*\.+ ${WEB_PASSTHROUGH}
+  ^\s+Client MFP\s*\.+ ${CLIENT_MFP}
+  ^\s+PMF\s*\.+ ${PMF}
+  ^AVC Visibilty\s*\.+ ${AVC_VISIBILITY}
+  ^AVC Profile Name\s*\.+ ${AVC_PROFILE}
+  ^Assisted Roaming Prediction Optimization\s*\.+ ${OPT_ROAMING}
+  ^802.11k Neighbor List\s*\.+ ${DOT11K_NEIGHBOR_LIST}
+  ^802.11k Neighbor List Dual Band\s*\.+ ${DOT11K_NEIGHBOR_LIST_DUAL_BAND}
+  ^802.11v Directed Multicast Service\s*\.+ ${DOT11V_DMS}
+  ^802.11v BSS Max Idle Service\s*\.+ ${DOT11V_MAX_IDLE}
+  ^802.11v BSS Transition Service\s*\.+ ${DOT11V_BSS_TRANS}
+  ^802.11v BSS Transition Disassoc Imminent\s*\.+ ${DOT11V_BSS_TRANS_DIS_IMM}
+  ^802.11v BSS Transition Neigh List Dual Band\s*\.+ ${DOT11V_BSS_TRANS_NEIGH_DUAL}
   ^\s*Mobility Anchor List -> Anchors
   ^U3-Reporting Interval -> Record
+
+AKM
+  ^\s+802\.1x\s*\.+ ${WPA_DOT1X}
+  ^\s+PSK\s*\.+ ${WPA_PSK}
+  ^\s+PSK-SHA2\s*\.+ ${WPA_PSK_SHA2}
+  ^\s+CCKM\s*\.+ ${WPA_CCKM}
+  ^\s+FT-1X.*\.+ ${WPA_FT_1X}
+  ^\s+FT-PSK.*\.+ ${WPA_FT_PSK}
+  ^\s+OWE\s*\.+ ${WPA_OWE}
+  ^\s+SAE\s*\.+ ${WPA_SAE} -> Start
 
 ClientProfiling
   ^\s+Radius Profiling\s*\.+ ${RADIUS_PROFILING} -> RadiusProfiling
