@@ -1,9 +1,9 @@
-Value AUTH_CALL_STATION_ID_TYPE (.+)
-Value ACCT_CALL_STATION_ID_TYPE (.+)
+Value AUTH_CALL_STATION_ID_TYPE (.+?)
+Value ACCT_CALL_STATION_ID_TYPE (.+?)
 Value AGGRESSIVE_FAILOVER (Enabled|Disabled)
-Value FALLBACK_TEST_MODE (.+)
-Value AUTH_MAC_DELIMITER (.+)
-Value ACCT_MAC_DELIMITER (.+)
+Value FALLBACK_TEST_MODE (.+?)
+Value AUTH_MAC_DELIMITER (.+?)
+Value ACCT_MAC_DELIMITER (.+?)
 Value FRAMED_MTU (\d+)
 Value AUTH_IDX (\d{1,2})
 Value AUTH_TYPE (\w+)
@@ -23,18 +23,18 @@ Value ACCT_MGMT_TIMEOUT (\d+)
 
 
 Start
-  ^Accounting Call Station Id Type\s*\.+ ${ACCT_CALL_STATION_ID_TYPE}
-  ^Auth Call Station Id Type\s*\.+ ${AUTH_CALL_STATION_ID_TYPE}
-  ^Aggressive Failover\s*\.+ ${AGGRESSIVE_FAILOVER}
+  ^Accounting Call Station Id Type\s*\.+ ${ACCT_CALL_STATION_ID_TYPE}\s*$$
+  ^Auth Call Station Id Type\s*\.+ ${AUTH_CALL_STATION_ID_TYPE}\s*$$
+  ^Aggressive Failover\s*\.+ ${AGGRESSIVE_FAILOVER}\s*$$
   ^Fallback Test: -> Fallback
-  ^MAC Delimiter for Authentication Messages\s*\.+ ${AUTH_MAC_DELIMITER}
-  ^MAC Delimiter for Accounting Messages\s*\.+ ${ACCT_MAC_DELIMITER}
+  ^MAC Delimiter for Authentication Messages\s*\.+ ${AUTH_MAC_DELIMITER}\s*$$
+  ^MAC Delimiter for Accounting Messages\s*\.+ ${ACCT_MAC_DELIMITER}\s*$$
   ^RADIUS Authentication Framed-MTU\s*\.+ ${FRAMED_MTU}
   ^Authentication Servers -> Record AuthServers
   ^Accounting Servers -> Record AcctServers
 
 Fallback
-  ^\s+Test Mode\s*\.+ ${FALLBACK_TEST_MODE}
+  ^\s+Test Mode\s*\.+ ${FALLBACK_TEST_MODE}\s*$$
   ^\s+Interval -> Start
 
 AuthServers
