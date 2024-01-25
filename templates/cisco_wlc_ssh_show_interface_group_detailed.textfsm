@@ -1,0 +1,32 @@
+Value Required,Key INTERFACE_GROUP_NAME (.+?)
+Value INTERFACE_GROUP_DESCRIPTION (.+?)
+Value WLAN_COUNT (\d+)
+Value AP_GROUP_COUNT (\d+)
+Value INTERFACE_COUNT (\d+)
+Value FAILURE_DETECT_MODE (\S+)
+Value List IF_INDEX (\d+)
+Value List IF_VLAN (\d+)
+Value List IF_NAME (.+?)
+Value List IF_DIRTY (Yes|No)
+Value List IF_FAILURES (\d+)
+
+
+Start
+  ^Interface Group Name\s*\.+ ${INTERFACE_GROUP_NAME}\s*$$ -> InterfaceGroupSummary
+  ^Index\s+Vlan\s+Interface Name -> Interfaces
+
+
+InterfaceGroupSummary
+  ^Number of Wlans using the Interface Group\s*\.+ ${WLAN_COUNT}\s*$$
+  ^Number of AP Groups using the Interface Group\s*\.+ ${AP_GROUP_COUNT}\s*$$
+  ^Number of Interfaces Contained\s*\.+ ${INTERFACE_COUNT}\s*$$
+  ^Failure-Detect Mode\s*\.+ ${FAILURE_DETECT_MODE}\s*$$
+  ^Interface Group Description\s*\.+ ${INTERFACE_GROUP_DESCRIPTION}\s*$$
+  ^\s*$$ -> Start
+
+
+Interfaces
+  ^-----[- ]+
+  ^${IF_INDEX}\s+${IF_VLAN}\s+${IF_NAME}\s+${IF_DIRTY}\s+${IF_FAILURES}
+  ^\s*$$ -> Start
+  ^. -> Error
