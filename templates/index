@@ -274,6 +274,7 @@ cisco_wlc_ssh_show_interface_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[e
 cisco_wlc_ssh_show_logging.textfsm, .*, cisco_wlc_ssh, show logging
 cisco_wlc_ssh_show_radius_summary.textfsm, .*, cisco_wlc_ssh, show radius summary
 cisco_wlc_ssh_show_sysinfo.textfsm, .*, cisco_wlc_ssh, sh[[ow]] sysi[[nfo]]
+cisco_wlc_ssh_show_time.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ti[[me]]
 cisco_wlc_ssh_show_wlan.textfsm, .*, cisco_wlc_ssh, show wlan \d+
 cisco_wlc_ssh_show_wlan_apgroups.textfsm, .*, cisco_wlc_ssh, show wlan apgroups
 cisco_wlc_ssh_show_wlan_summary.textfsm, .*, cisco_wlc_ssh, show wlan summary

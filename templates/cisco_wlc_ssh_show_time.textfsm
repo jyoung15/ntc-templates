@@ -1,0 +1,29 @@
+Value TIME (.+?)
+Value TZ_DELTA (\S+)
+Value TIMEZONE (.+)
+Value TZ_NAME (.+?)
+Value NTP_VERSION (\d)
+Value NTP_POLLING_INTERVAL (\d+)
+Value List INDEX (\d+)
+Value List NTP_KEY_INDEX (\d+)
+Value List NTP_SERVER (\S+)
+Value List STATUS (\S+\s?\S+)
+Value List NTP_MSG_AUTH_STATUS (\S+\s?\S+)
+
+Start
+  ^Time\s*\.+\s+${TIME}\s*$$
+  ^Timezone [dD]elta\s*\.+\s+${TZ_DELTA}\s*$$
+  ^Timezone [lL]ocation\s*\.+\s+\(${TIMEZONE}\)\s+${TZ_NAME}\s*$$
+  ^NTP [sS]ervers\s*$$
+  ^\s*NTP [vV]ersion\s*\.+\s+${NTP_VERSION}\s*$$
+  ^\s*NTP [pP]olling [iI]nterval\s*\.+\s+${NTP_POLLING_INTERVAL}\s*$$
+  #
+  # NTP Server Table
+  ^Index\s+NTP Key Index\s+NTP Server\s+Status\s+NTP Msg Auth Status\s*$$ -> NTP_Servers
+  ^\s*$$
+
+NTP_Servers
+  ^\s+${INDEX}\s+${NTP_KEY_INDEX}\s+${NTP_SERVER}\s+${STATUS}\s+${NTP_MSG_AUTH_STATUS}\s*$$
+  ^\s*[-\s]+$$
+  ^\s*$$ -> Record Start
+  ^. -> Error
