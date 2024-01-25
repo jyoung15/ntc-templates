@@ -1,0 +1,52 @@
+Value RF_NETWORK_NAME (.+?)
+Value DNS_SERVER_IP (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value WEB_MODE (Enable|Disable)
+Value SECURE_WEB_MODE (Enable|Disable)
+Value WEB_CIPHER_HIGH (Enable|Disable)
+Value WEB_SSL_PROTOCOL (Enable|Disable)
+Value SSH_ENABLE (Enable|Disable)
+Value SSH_CIPHER_HIGH (Enable|Disable)
+Value TELNET_ENABLE (Enable|Disable)
+Value MCAST_FORWARDING (Enable|Disable)
+Value BCAST_FORWARDING (Enable|Disable)
+Value IPV4_MCAST_MODE (\S+)
+Value IPV6_MCAST_MODE (\S+)
+Value IGMP_SNOOPING (Enable|Disable)
+Value MLD_SNOOPING (Enable|Disable)
+Value USER_IDLE_TIMEOUT (\d+)
+Value ARP_IDLE_TIMEOUT (\d+)
+Value MASTER_CONTROLLER (Enable|Disable)
+Value AP_JOIN_PRIORITY (Enable|Disable)
+Value MGMT_VIA_WIRELESS (Enable|Disable)
+Value MGMT_VIA_DYN_IF (Enable|Disable)
+Value AP_FALLBACK (Enable|Disable)
+Value WEB_AUTH_CAPTIVE_BYPASS (Enable|Disable)
+Value FAST_SSID_CHANGE (Enable|Disable)
+Value MDNS_SNOOPING (Enable|Disable)
+
+Start
+  ^RF-Network Name\s*\.+ ${RF_NETWORK_NAME}\s*$$
+  ^DNS Server IP\s*\.+ ${DNS_SERVER_IP}
+  ^Web Mode\s*\.+ ${WEB_MODE}
+  ^Secure Web Mode\s*\.+ ${SECURE_WEB_MODE}
+  ^Secure Web Mode Cipher-Option High\s*\.+ ${WEB_CIPHER_HIGH}
+  ^Secure Web Mode SSL Protocol\s*\.+ ${WEB_SSL_PROTOCOL}
+  ^Secure Shell \(ssh\)\s*\.+ ${SSH_ENABLE}
+  ^Secure Shell \(ssh\) Cipher-Option High\s*\.+ ${SSH_CIPHER_HIGH}
+  ^Telnet\s*\.+ ${TELNET_ENABLE}
+  ^Ethernet Multicast Forwarding\s*\.+ ${MCAST_FORWARDING}
+  ^Ethernet Broadcast Forwarding\s*\.+ ${BCAST_FORWARDING}
+  ^IPv4 AP Multicast/Broadcast Mode\s*\.+ ${IPV4_MCAST_MODE}
+  ^IPv6 AP Multicast/Broadcast Mode\s*\.+ ${IPV6_MCAST_MODE}
+  ^IGMP snooping\s*\.+ ${IGMP_SNOOPING}
+  ^MLD snooping\s*\.+ ${MLD_SNOOPING}
+  ^User Idle Timeout\s*\.+ ${USER_IDLE_TIMEOUT} seconds
+  ^ARP Idle Timeout\s*\.+ ${ARP_IDLE_TIMEOUT} seconds
+  ^Cisco AP Default Master\s*\.+ ${MASTER_CONTROLLER}
+  ^AP Join Priority\s*\.+ ${AP_JOIN_PRIORITY}
+  ^Mgmt Via Wireless Interface\s*\.+ ${MGMT_VIA_WIRELESS}
+  ^Mgmt Via Dynamic Interface\s*\.+ ${MGMT_VIA_DYN_IF}
+  ^AP Fallback \s*\.+ ${AP_FALLBACK}
+  ^Web Auth Captive-Bypass\s*\.+ ${WEB_AUTH_CAPTIVE_BYPASS}
+  ^Fast SSID Change \s*\.+ ${FAST_SSID_CHANGE}
+  ^mDNS snooping\s*\.+ ${MDNS_SNOOPING}

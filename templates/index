@@ -272,6 +272,7 @@ cisco_wlc_ssh_show_interface_group_detailed.textfsm, .*, cisco_wlc_ssh, show int
 cisco_wlc_ssh_show_interface_group_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] gr[[oup]] s[[ummary]]
 cisco_wlc_ssh_show_interface_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] s[[ummary]]
 cisco_wlc_ssh_show_logging.textfsm, .*, cisco_wlc_ssh, show logging
+cisco_wlc_ssh_show_network_summary.textfsm, .*, cisco_wlc_ssh, show network summary
 cisco_wlc_ssh_show_radius_summary.textfsm, .*, cisco_wlc_ssh, show radius summary
 cisco_wlc_ssh_show_sysinfo.textfsm, .*, cisco_wlc_ssh, sh[[ow]] sysi[[nfo]]
 cisco_wlc_ssh_show_time.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ti[[me]]
