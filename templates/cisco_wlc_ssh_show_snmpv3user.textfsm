@@ -1,5 +1,5 @@
 Value Required,Key USERNAME (\S+)
-Value ACCESS_MODE (\S+)
+Value ACCESS_MODE (Read Only|Read/Write)
 Value AUTHENTICATION (\S+)
 Value ENCRYPTION (\S+)
 
