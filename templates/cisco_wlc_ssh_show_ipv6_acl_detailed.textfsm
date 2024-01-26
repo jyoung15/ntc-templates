@@ -1,0 +1,27 @@
+Value Key,Required INDEX (\d+)
+Value Required DIRECTION (In|Out|Any)
+Value Required SOURCE ([0-9a-f:/]+)
+Value Required DESTINATION ([0-9a-f:/]+)
+Value Required PROTOCOL (\d+|Any)
+Value Required SOURCE_PORT (\d+-\d+)
+Value Required DESTINATION_PORT (\d+-\d+)
+Value DSCP (\S+)
+Value Required ACTION (Permit|Deny)
+Value COUNTER (\d+)
+
+
+Start
+  ^Rule Index\s*\.+ ${INDEX} -> Rule
+  ^Deny Counter -> EOF
+
+Rule
+  ^\s*$$ -> Record Start
+  ^Direction\s*\.+ ${DIRECTION}
+  ^IPv6 source prefix\s*\.+ ${SOURCE}
+  ^IPv6 destination prefix\s*\.+ ${DESTINATION}
+  ^Protocol\s*\.+ ${PROTOCOL}
+  ^Source Port Range\s*\.+ ${SOURCE_PORT}
+  ^Destination Port Range\s*\.+ ${DESTINATION_PORT}
+  ^DSCP\s*\.+ ${DSCP}
+  ^Action\s*\.+ ${ACTION}
+  ^Counter\s*\.+ ${COUNTER}

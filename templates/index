@@ -257,6 +257,7 @@ cisco_nxos_show_fex.template, .*, cisco_nxos, sh[[ow]] fex
 cisco_nxos_show_vpc.template, .*, cisco_nxos, sh[[ow]] vpc
 cisco_nxos_show_vrf.template, .*, cisco_nxos, sh[[ow]] vrf
 
+cisco_wlc_ssh_show_acl_detailed.textfsm, .*, cisco_wlc_ssh, show acl detailed
 cisco_wlc_ssh_show_acl_summary.textfsm, .*, cisco_wlc_ssh, show acl summary
 cisco_wlc_ssh_show_advanced_802.11a_summary.textfsm, .*, cisco_wlc_ssh, show advanced 802.11a summary
 cisco_wlc_ssh_show_ap_auto-rf_802.11a.textfsm, .*, cisco_wlc_ssh, show ap auto-rf 802.11a \S+
@@ -272,6 +273,7 @@ cisco_wlc_ssh_show_interface_detailed_id.textfsm, .*, cisco_wlc_ssh, sh[[ow]] in
 cisco_wlc_ssh_show_interface_group_detailed.textfsm, .*, cisco_wlc_ssh, show interface group detailed
 cisco_wlc_ssh_show_interface_group_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] gr[[oup]] s[[ummary]]
 cisco_wlc_ssh_show_interface_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] s[[ummary]]
+cisco_wlc_ssh_show_ipv6_acl_detailed.textfsm, .*, cisco_wlc_ssh, show ipv6 acl detailed
 cisco_wlc_ssh_show_logging.textfsm, .*, cisco_wlc_ssh, show logging
 cisco_wlc_ssh_show_network_summary.textfsm, .*, cisco_wlc_ssh, show network summary
 cisco_wlc_ssh_show_radius_summary.textfsm, .*, cisco_wlc_ssh, show radius summary
