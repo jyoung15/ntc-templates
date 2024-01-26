@@ -257,6 +257,7 @@ cisco_nxos_show_fex.template, .*, cisco_nxos, sh[[ow]] fex
 cisco_nxos_show_vpc.template, .*, cisco_nxos, sh[[ow]] vpc
 cisco_nxos_show_vrf.template, .*, cisco_nxos, sh[[ow]] vrf
 
+cisco_wlc_ssh_show_acl_summary.textfsm, .*, cisco_wlc_ssh, show acl summary
 cisco_wlc_ssh_show_advanced_802.11a_summary.textfsm, .*, cisco_wlc_ssh, show advanced 802.11a summary
 cisco_wlc_ssh_show_ap_auto-rf_802.11a.textfsm, .*, cisco_wlc_ssh, show ap auto-rf 802.11a \S+
 cisco_wlc_ssh_show_ap_cdp_neigh_all.textfsm, .*, cisco_wlc_ssh, show ap cdp neighbor all

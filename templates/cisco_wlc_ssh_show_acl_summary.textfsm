@@ -1,0 +1,25 @@
+Value COUNTER_STATUS (Enabled|Disabled)
+Value HIGH_PRIORITY (Enabled|Disabled)
+Value List IPV4_ACL_NAME (.+?)
+Value List IPV4_ACL_APPLIED (Yes|No)
+Value List IPV6_ACL_NAME (.+?)
+Value List IPV6_ACL_APPLIED (Yes|No)
+
+
+Start
+  ^ACL Counter Status\s+${COUNTER_STATUS}
+  ^ACL High-Priority\s+${HIGH_PRIORITY}
+  ^IPv4 ACL Name\s+Applied -> IPv4
+  ^IPv6 ACL Name\s+Applied -> IPv6
+
+IPv4
+  ^--[- ]+
+  ^${IPV4_ACL_NAME}\s+${IPV4_ACL_APPLIED}
+  ^\s*$$ -> Start
+  ^. -> Error
+
+IPv6
+  ^--[- ]+
+  ^${IPV6_ACL_NAME}\s+${IPV6_ACL_APPLIED}
+  ^\s*$$ -> Start
+  ^. -> Error
