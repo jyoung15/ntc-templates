@@ -1,0 +1,8 @@
+Value Required SNMP_V1 (Enable|Disable)
+Value Required SNMP_V2C (Enable|Disable)
+Value Required SNMP_3 (Enable|Disable)
+
+Start
+  ^SNMP\s+v1\s+Mode\s*\.+ ${SNMP_V1}
+  ^SNMP\s+v2c\s+Mode\s*\.+ ${SNMP_V2C}
+  ^SNMP\s+v3\s+Mode\s*\.+ ${SNMP_3}

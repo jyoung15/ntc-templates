@@ -1,0 +1,14 @@
+Value Required,Key USERNAME (\S+)
+Value ACCESS_MODE (\S+)
+Value AUTHENTICATION (\S+)
+Value ENCRYPTION (\S+)
+
+
+Start
+  ^SNMP v3 User Name\s+AccessMode\s+Authentication\s+Encryption -> V3_User
+
+V3_User
+  ^--[- ]+
+  ^${USERNAME}\s+${ACCESS_MODE}\s+${AUTHENTICATION}\s+${ENCRYPTION} -> Record
+  ^\s*$$ -> Start
+  ^. -> Error

@@ -1,0 +1,14 @@
+Value Required COMMUNITY (.+?)
+Value CLIENT_IP (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value CLIENT_MASK (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value ACCESS_MODE (\S+)
+Value STATUS (Enable|Disable)
+
+Start
+  ^SNMP Community Name\s+Client IP Address -> Communities
+
+Communities
+  ^--[- ]+
+  ^${COMMUNITY}\s+${CLIENT_IP}\s+${CLIENT_MASK}\s+${ACCESS_MODE}\s+${STATUS} -> Record
+  ^\s*$$ -> Start
+  ^. -> Error

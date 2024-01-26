@@ -1,0 +1,115 @@
+Value AUTHENTICATION_FLAG ((?:Enable|Disable)d?)
+Value LINK_UP_DOWN ((?:Enable|Disable)d?)
+Value MULTIPLE_USER ((?:Enable|Disable)d?)
+Value CONFIG_SAVE ((?:Enable|Disable)d?)
+Value STRONG_PWD_CHECK ((?:Enable|Disable)d?)
+Value CLIENT_WARN_THRESHOLD (\d+)
+Value RFID_WARN_THRESHOLD (\d+)
+Value DOT11_DISASSOCIATION ((?:Enable|Disable)d?)
+Value DOT11_ASSOCIATION ((?:Enable|Disable)d?)
+Value ENHANCED_DOT11_ASSOCIATION ((?:Enable|Disable)d?)
+Value DOT11_DEAUTHENTICATION ((?:Enable|Disable)d?)
+Value ENHANCED_DOT11_DEAUTHENTICATION ((?:Enable|Disable)d?)
+Value DOT11_AUTHENTICATE_FAILURE ((?:Enable|Disable)d?)
+Value DOT11_ASSOCIATION_FAILURE ((?:Enable|Disable)d?)
+Value EXCLUDED ((?:Enable|Disable)d?)
+Value AUTHENTICATION ((?:Enable|Disable)d?)
+Value ENHANCED_AUTHENTICATION ((?:Enable|Disable)d?)
+Value DOT11_ASSOCIATION_STATS ((?:Enable|Disable)d?)
+Value ENHANCED_802_STATS ((?:Enable|Disable)d?)
+Value ENHANCED_802_DISASSOCIATE_STATS ((?:Enable|Disable)d?)
+Value NAC_ALERT_TRAPS ((?:Enable|Disable)d?)
+Value WEBAUTHUSERLOGIN ((?:Enable|Disable)d?)
+Value WEBAUTHUSERLOGOUT ((?:Enable|Disable)d?)
+Value NEIGHBOR_CLIENTS_DETECTION ((?:Enable|Disable)d?)
+Value AUTHFAILURE ((?:Enable|Disable)d?)
+Value SSIDKEYCONFLICT ((?:Enable|Disable)d?)
+Value REGISTER ((?:Enable|Disable)d?)
+Value INTERFACEUP ((?:Enable|Disable)d?)
+Value MODECHANGE ((?:Enable|Disable)d?)
+Value NEIGHBOR_AP_DETECTION ((?:Enable|Disable)d?)
+Value WEP_WPA_DECRYPT_ERROR ((?:Enable|Disable)d?)
+Value IDS_SIGNATURE_ATTACK ((?:Enable|Disable)d?)
+Value AUTH ((?:Enable|Disable)d?)
+Value SERVERS ((?:Enable|Disable)d?)
+Value MFP ((?:Enable|Disable)d?)
+Value ROGUEAP ((?:Enable|Disable)d?)
+Value LOAD ((?:Enable|Disable)d?)
+Value NOISE ((?:Enable|Disable)d?)
+Value INTERFERENCE ((?:Enable|Disable)d?)
+Value COVERAGE ((?:Enable|Disable)d?)
+Value TX_POWER ((?:Enable|Disable)d?)
+Value CHANNEL ((?:Enable|Disable)d?)
+Value AUTH_FAILURE ((?:Enable|Disable)d?)
+Value CHILD_EXCLUDED_PARENT ((?:Enable|Disable)d?)
+Value PARENT_CHANGE ((?:Enable|Disable)d?)
+Value CHILD_MOVED ((?:Enable|Disable)d?)
+Value EXCESSIVE_PARENT_CHANGE ((?:Enable|Disable)d?)
+Value ONSET_SNR ((?:Enable|Disable)d?)
+Value ABATE_SNR ((?:Enable|Disable)d?)
+Value CONSOLE_LOGIN ((?:Enable|Disable)d?)
+Value EXCESSIVE_ASSOCIATION ((?:Enable|Disable)d?)
+Value DEFAULT_BRIDGE_GROUP_NAME ((?:Enable|Disable)d?)
+Value EXCESSIVE_HOP_COUNT ((?:Enable|Disable)d?)
+Value EXCESSIVE_CHILDREN ((?:Enable|Disable)d?)
+Value SEC_BACKHAUL_CHANGE ((?:Enable|Disable)d?)
+Value PSK_AUTH_FAILURE ((?:Enable|Disable)d?)
+
+
+Start
+  ^\s*Authentication Flag\s*\.+ ${AUTHENTICATION_FLAG}
+  ^\s*Link Up/Down Flag\s*\.+ ${LINK_UP_DOWN}
+  ^\s*Multiple Users Flag\s*\.+ ${MULTIPLE_USER}
+  ^\s*configsave\s*\.+ ${CONFIG_SAVE}
+  ^\s*strong-pwd check\s*\.+ ${STRONG_PWD_CHECK}
+  ^\s*802\.11 Disassociation\s*\.+ ${DOT11_DISASSOCIATION}
+  ^\s*802\.11 Association\s*\.+ ${DOT11_ASSOCIATION}
+  ^\s*Enhanced 802\.11 Association\s*\.+ ${ENHANCED_DOT11_ASSOCIATION}
+  ^\s*802\.11 Deauthenticate\s*\.+ ${DOT11_DEAUTHENTICATION}
+  ^\s*Enhanced 802\.11 Deauthenticate\s*\.+ ${ENHANCED_DOT11_DEAUTHENTICATION}
+  ^\s*802\.11 Authenticate Failure\s*\.+ ${DOT11_AUTHENTICATE_FAILURE}
+  ^\s*802\.11 Association Failure\s*\.+ ${DOT11_ASSOCIATION_FAILURE}
+  ^\s*Excluded\s*\.+ ${EXCLUDED}
+  ^\s*Authentication\s*\.+ ${AUTHENTICATION}
+  ^\s*Enhanced Authentication\s*\.+ ${ENHANCED_AUTHENTICATION}
+  ^\s*802\.11 Assoc Stats\s*\.+ ${DOT11_ASSOCIATION_STATS}
+  ^\s*Enhanced 802\.11 Stats\s*\.+ ${ENHANCED_802_STATS}
+  ^\s*Enhanced 802\.11 Disassociate Stats\s*\.+ ${ENHANCED_802_DISASSOCIATE_STATS}
+  ^\s*Max Client Warning Threshold\s*\.+ ${CLIENT_WARN_THRESHOLD}%
+  ^\s*Nac-Alert Traps\s*\.+ ${NAC_ALERT_TRAPS}
+  ^\s*WebAuthUserLogin\s*\.+ ${WEBAUTHUSERLOGIN}
+  ^\s*WebAuthUserLogout\s*\.+ ${WEBAUTHUSERLOGOUT}
+  ^\s*Neighbor clients detection\s*\.+ ${NEIGHBOR_CLIENTS_DETECTION}
+  ^\s*Max RFIDs Warning Threshold\s*\.+ ${RFID_WARN_THRESHOLD}%
+  ^\s*AuthFailure\s*\.+ ${AUTHFAILURE}
+  ^\s*SsidKeyConflict\s*\.+ ${SSIDKEYCONFLICT}
+  ^\s*Register\s*\.+ ${REGISTER}
+  ^\s*InterfaceUp\s*\.+ ${INTERFACEUP}
+  ^\s*modeChange\s*\.+ ${MODECHANGE}
+  ^\s*Neighbor AP detection\s*\.+ ${NEIGHBOR_AP_DETECTION}
+  ^\s*WEP/WPA Decrypt Error\s*\.+ ${WEP_WPA_DECRYPT_ERROR}
+  ^\s*IDS Signature Attack\s*\.+ ${IDS_SIGNATURE_ATTACK}
+  ^\s*auth\s*\.+ ${AUTH}
+  ^\s*servers\s*\.+ ${SERVERS}
+  ^\s*mfp\s*\.+ ${MFP}
+  ^\s*rogueap\s*\.+ ${ROGUEAP}
+  ^\s*Load\s*\.+ ${LOAD}
+  ^\s*Noise\s*\.+ ${NOISE}
+  ^\s*Interference\s*\.+ ${INTERFERENCE}
+  ^\s*Coverage\s*\.+ ${COVERAGE}
+  ^\s*tx-power\s*\.+ ${TX_POWER}
+  ^\s*channel\s*\.+ ${CHANNEL}
+  ^\s*auth failure\s*\.+ ${AUTH_FAILURE}
+  ^\s*child excluded parent\s*\.+ ${CHILD_EXCLUDED_PARENT}
+  ^\s*parent change\s*\.+ ${PARENT_CHANGE}
+  ^\s*child moved\s*\.+ ${CHILD_MOVED}
+  ^\s*excessive parent change\s*\.+ ${EXCESSIVE_PARENT_CHANGE}
+  ^\s*onset SNR\s*\.+ ${ONSET_SNR}
+  ^\s*abate SNR\s*\.+ ${ABATE_SNR}
+  ^\s*console login\s*\.+ ${CONSOLE_LOGIN}
+  ^\s*excessive association\s*\.+ ${EXCESSIVE_ASSOCIATION}
+  ^\s*default bridge group name\s*\.+ ${DEFAULT_BRIDGE_GROUP_NAME}
+  ^\s*excessive hop count\s*\.+ ${EXCESSIVE_HOP_COUNT}
+  ^\s*excessive children\s*\.+ ${EXCESSIVE_CHILDREN}
+  ^\s*sec backhaul change\s*\.+ ${SEC_BACKHAUL_CHANGE}
+  ^\s*psk auth failure\s*\.+ ${PSK_AUTH_FAILURE}
