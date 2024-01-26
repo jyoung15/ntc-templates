@@ -16,44 +16,44 @@ Value EXCLUDED ((?:Enable|Disable)d?)
 Value AUTHENTICATION ((?:Enable|Disable)d?)
 Value ENHANCED_AUTHENTICATION ((?:Enable|Disable)d?)
 Value DOT11_ASSOCIATION_STATS ((?:Enable|Disable)d?)
-Value ENHANCED_802_STATS ((?:Enable|Disable)d?)
-Value ENHANCED_802_DISASSOCIATE_STATS ((?:Enable|Disable)d?)
+Value ENHANCED_DOT11_STATS ((?:Enable|Disable)d?)
+Value ENHANCED_DOT11_DISASSOCIATE_STATS ((?:Enable|Disable)d?)
 Value NAC_ALERT_TRAPS ((?:Enable|Disable)d?)
-Value WEBAUTHUSERLOGIN ((?:Enable|Disable)d?)
-Value WEBAUTHUSERLOGOUT ((?:Enable|Disable)d?)
+Value WEB_AUTH_USER_LOGIN ((?:Enable|Disable)d?)
+Value WEB_AUTH_USER_LOGOUT ((?:Enable|Disable)d?)
 Value NEIGHBOR_CLIENTS_DETECTION ((?:Enable|Disable)d?)
-Value AUTHFAILURE ((?:Enable|Disable)d?)
-Value SSIDKEYCONFLICT ((?:Enable|Disable)d?)
-Value REGISTER ((?:Enable|Disable)d?)
-Value INTERFACEUP ((?:Enable|Disable)d?)
-Value MODECHANGE ((?:Enable|Disable)d?)
+Value AP_AUTH_FAILURE ((?:Enable|Disable)d?)
+Value SSID_KEY_CONFLICT ((?:Enable|Disable)d?)
+Value AP_REGISTER ((?:Enable|Disable)d?)
+Value AP_INTERFACE_UP ((?:Enable|Disable)d?)
+Value AP_MODE_CHANGE ((?:Enable|Disable)d?)
 Value NEIGHBOR_AP_DETECTION ((?:Enable|Disable)d?)
 Value WEP_WPA_DECRYPT_ERROR ((?:Enable|Disable)d?)
 Value IDS_SIGNATURE_ATTACK ((?:Enable|Disable)d?)
-Value AUTH ((?:Enable|Disable)d?)
-Value SERVERS ((?:Enable|Disable)d?)
+Value AAA_AUTH ((?:Enable|Disable)d?)
+Value AAA_SERVERS ((?:Enable|Disable)d?)
 Value MFP ((?:Enable|Disable)d?)
-Value ROGUEAP ((?:Enable|Disable)d?)
-Value LOAD ((?:Enable|Disable)d?)
-Value NOISE ((?:Enable|Disable)d?)
-Value INTERFERENCE ((?:Enable|Disable)d?)
-Value COVERAGE ((?:Enable|Disable)d?)
-Value TX_POWER ((?:Enable|Disable)d?)
-Value CHANNEL ((?:Enable|Disable)d?)
-Value AUTH_FAILURE ((?:Enable|Disable)d?)
-Value CHILD_EXCLUDED_PARENT ((?:Enable|Disable)d?)
-Value PARENT_CHANGE ((?:Enable|Disable)d?)
-Value CHILD_MOVED ((?:Enable|Disable)d?)
-Value EXCESSIVE_PARENT_CHANGE ((?:Enable|Disable)d?)
-Value ONSET_SNR ((?:Enable|Disable)d?)
-Value ABATE_SNR ((?:Enable|Disable)d?)
-Value CONSOLE_LOGIN ((?:Enable|Disable)d?)
-Value EXCESSIVE_ASSOCIATION ((?:Enable|Disable)d?)
-Value DEFAULT_BRIDGE_GROUP_NAME ((?:Enable|Disable)d?)
-Value EXCESSIVE_HOP_COUNT ((?:Enable|Disable)d?)
-Value EXCESSIVE_CHILDREN ((?:Enable|Disable)d?)
-Value SEC_BACKHAUL_CHANGE ((?:Enable|Disable)d?)
-Value PSK_AUTH_FAILURE ((?:Enable|Disable)d?)
+Value ROGUE_AP ((?:Enable|Disable)d?)
+Value LOAD_PROFILE ((?:Enable|Disable)d?)
+Value NOISE_PROFILE ((?:Enable|Disable)d?)
+Value INTERFERENCE_PROFILE ((?:Enable|Disable)d?)
+Value COVERAGE_PROFILE ((?:Enable|Disable)d?)
+Value AUTO_RF_TX_POWER ((?:Enable|Disable)d?)
+Value AUTO_RF_CHANNEL ((?:Enable|Disable)d?)
+Value MESH_AUTH_FAILURE ((?:Enable|Disable)d?)
+Value MESH_CHILD_EXCLUDED_PARENT ((?:Enable|Disable)d?)
+Value MESH_PARENT_CHANGE ((?:Enable|Disable)d?)
+Value MESH_CHILD_MOVED ((?:Enable|Disable)d?)
+Value MESH_EXCESSIVE_PARENT_CHANGE ((?:Enable|Disable)d?)
+Value MESH_ONSET_SNR ((?:Enable|Disable)d?)
+Value MESH_ABATE_SNR ((?:Enable|Disable)d?)
+Value MESH_CONSOLE_LOGIN ((?:Enable|Disable)d?)
+Value MESH_EXCESSIVE_ASSOCIATION ((?:Enable|Disable)d?)
+Value MESH_DEFAULT_BRIDGE_GROUP_NAME ((?:Enable|Disable)d?)
+Value MESH_EXCESSIVE_HOP_COUNT ((?:Enable|Disable)d?)
+Value MESH_EXCESSIVE_CHILDREN ((?:Enable|Disable)d?)
+Value MESH_SEC_BACKHAUL_CHANGE ((?:Enable|Disable)d?)
+Value MESH_PSK_AUTH_FAILURE ((?:Enable|Disable)d?)
 
 
 Start
@@ -73,43 +73,43 @@ Start
   ^\s*Authentication\s*\.+ ${AUTHENTICATION}
   ^\s*Enhanced Authentication\s*\.+ ${ENHANCED_AUTHENTICATION}
   ^\s*802\.11 Assoc Stats\s*\.+ ${DOT11_ASSOCIATION_STATS}
-  ^\s*Enhanced 802\.11 Stats\s*\.+ ${ENHANCED_802_STATS}
-  ^\s*Enhanced 802\.11 Disassociate Stats\s*\.+ ${ENHANCED_802_DISASSOCIATE_STATS}
+  ^\s*Enhanced 802\.11 Stats\s*\.+ ${ENHANCED_DOT11_STATS}
+  ^\s*Enhanced 802\.11 Disassociate Stats\s*\.+ ${ENHANCED_DOT11_DISASSOCIATE_STATS}
   ^\s*Max Client Warning Threshold\s*\.+ ${CLIENT_WARN_THRESHOLD}%
   ^\s*Nac-Alert Traps\s*\.+ ${NAC_ALERT_TRAPS}
-  ^\s*WebAuthUserLogin\s*\.+ ${WEBAUTHUSERLOGIN}
-  ^\s*WebAuthUserLogout\s*\.+ ${WEBAUTHUSERLOGOUT}
+  ^\s*WebAuthUserLogin\s*\.+ ${WEB_AUTH_USER_LOGIN}
+  ^\s*WebAuthUserLogout\s*\.+ ${WEB_AUTH_USER_LOGOUT}
   ^\s*Neighbor clients detection\s*\.+ ${NEIGHBOR_CLIENTS_DETECTION}
   ^\s*Max RFIDs Warning Threshold\s*\.+ ${RFID_WARN_THRESHOLD}%
-  ^\s*AuthFailure\s*\.+ ${AUTHFAILURE}
-  ^\s*SsidKeyConflict\s*\.+ ${SSIDKEYCONFLICT}
-  ^\s*Register\s*\.+ ${REGISTER}
-  ^\s*InterfaceUp\s*\.+ ${INTERFACEUP}
-  ^\s*modeChange\s*\.+ ${MODECHANGE}
+  ^\s*AuthFailure\s*\.+ ${AP_AUTH_FAILURE}
+  ^\s*SsidKeyConflict\s*\.+ ${SSID_KEY_CONFLICT}
+  ^\s*Register\s*\.+ ${AP_REGISTER}
+  ^\s*InterfaceUp\s*\.+ ${AP_INTERFACE_UP}
+  ^\s*modeChange\s*\.+ ${AP_MODE_CHANGE}
   ^\s*Neighbor AP detection\s*\.+ ${NEIGHBOR_AP_DETECTION}
   ^\s*WEP/WPA Decrypt Error\s*\.+ ${WEP_WPA_DECRYPT_ERROR}
   ^\s*IDS Signature Attack\s*\.+ ${IDS_SIGNATURE_ATTACK}
-  ^\s*auth\s*\.+ ${AUTH}
-  ^\s*servers\s*\.+ ${SERVERS}
+  ^\s*auth\s*\.+ ${AAA_AUTH}
+  ^\s*servers\s*\.+ ${AAA_SERVERS}
   ^\s*mfp\s*\.+ ${MFP}
-  ^\s*rogueap\s*\.+ ${ROGUEAP}
-  ^\s*Load\s*\.+ ${LOAD}
-  ^\s*Noise\s*\.+ ${NOISE}
-  ^\s*Interference\s*\.+ ${INTERFERENCE}
-  ^\s*Coverage\s*\.+ ${COVERAGE}
-  ^\s*tx-power\s*\.+ ${TX_POWER}
-  ^\s*channel\s*\.+ ${CHANNEL}
-  ^\s*auth failure\s*\.+ ${AUTH_FAILURE}
-  ^\s*child excluded parent\s*\.+ ${CHILD_EXCLUDED_PARENT}
-  ^\s*parent change\s*\.+ ${PARENT_CHANGE}
-  ^\s*child moved\s*\.+ ${CHILD_MOVED}
-  ^\s*excessive parent change\s*\.+ ${EXCESSIVE_PARENT_CHANGE}
-  ^\s*onset SNR\s*\.+ ${ONSET_SNR}
-  ^\s*abate SNR\s*\.+ ${ABATE_SNR}
-  ^\s*console login\s*\.+ ${CONSOLE_LOGIN}
-  ^\s*excessive association\s*\.+ ${EXCESSIVE_ASSOCIATION}
-  ^\s*default bridge group name\s*\.+ ${DEFAULT_BRIDGE_GROUP_NAME}
-  ^\s*excessive hop count\s*\.+ ${EXCESSIVE_HOP_COUNT}
-  ^\s*excessive children\s*\.+ ${EXCESSIVE_CHILDREN}
-  ^\s*sec backhaul change\s*\.+ ${SEC_BACKHAUL_CHANGE}
-  ^\s*psk auth failure\s*\.+ ${PSK_AUTH_FAILURE}
+  ^\s*rogueap\s*\.+ ${ROGUE_AP}
+  ^\s*Load\s*\.+ ${LOAD_PROFILE}
+  ^\s*Noise\s*\.+ ${NOISE_PROFILE}
+  ^\s*Interference\s*\.+ ${INTERFERENCE_PROFILE}
+  ^\s*Coverage\s*\.+ ${COVERAGE_PROFILE}
+  ^\s*tx-power\s*\.+ ${AUTO_RF_TX_POWER}
+  ^\s*channel\s*\.+ ${AUTO_RF_CHANNEL}
+  ^\s*auth failure\s*\.+ ${MESH_AUTH_FAILURE}
+  ^\s*child excluded parent\s*\.+ ${MESH_CHILD_EXCLUDED_PARENT}
+  ^\s*parent change\s*\.+ ${MESH_PARENT_CHANGE}
+  ^\s*child moved\s*\.+ ${MESH_CHILD_MOVED}
+  ^\s*excessive parent change\s*\.+ ${MESH_EXCESSIVE_PARENT_CHANGE}
+  ^\s*onset SNR\s*\.+ ${MESH_ONSET_SNR}
+  ^\s*abate SNR\s*\.+ ${MESH_ABATE_SNR}
+  ^\s*console login\s*\.+ ${MESH_CONSOLE_LOGIN}
+  ^\s*excessive association\s*\.+ ${MESH_EXCESSIVE_ASSOCIATION}
+  ^\s*default bridge group name\s*\.+ ${MESH_DEFAULT_BRIDGE_GROUP_NAME}
+  ^\s*excessive hop count\s*\.+ ${MESH_EXCESSIVE_HOP_COUNT}
+  ^\s*excessive children\s*\.+ ${MESH_EXCESSIVE_CHILDREN}
+  ^\s*sec backhaul change\s*\.+ ${MESH_SEC_BACKHAUL_CHANGE}
+  ^\s*psk auth failure\s*\.+ ${MESH_PSK_AUTH_FAILURE}
