@@ -6,7 +6,7 @@ Value BUILD_TYPE (.*)
 Value SYSTEM_NAME (.*)
 Value SYSTEM_LOCATION (.*)
 Value SYSTEM_CONTACT (.*)
-Value IP_ADDRESS (.*)
+Value IP_ADDRESS (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
 Value LAST_RESET (.*)
 Value SYSTEM_UP_TIME (.*)
 Value SYSTEM_TIMEZONE_LOCATION (.*)
@@ -15,6 +15,12 @@ Value NUMBER_WLANS (\d+)
 Value NUMBER_ACTIVE_CLIENTS (\d+)
 Value MAC_ADDRESS (.*)
 Value MAXIMUM_APS (\d+)
+Value OBJECT_ID ([\d.]+)
+Value LICENSE_TYPE (\S+)
+Value DOT11B_STATE (Enabled|Disabled)
+Value DOT11A_STATE (Enabled|Disabled)
+Value IPV6_ADDRESS ([\da-f:]+)
+
 
 Start
   ^Product Version\.+\s${PRODUCT_VERSION}
@@ -25,7 +31,8 @@ Start
   ^System Name\.+\s${SYSTEM_NAME}
   ^System Location\.+\s${SYSTEM_LOCATION}
   ^System Contact\.+\s${SYSTEM_CONTACT}
-  ^IP Address\.+\s${IP_ADDRESS}
+  ^IP Address\s*\.+\s${IP_ADDRESS}
+  ^IPv6 Address\s*\.+\s${IPV6_ADDRESS}
   ^Last Reset\.+\s${LAST_RESET}
   ^System Up Time\.+\s${SYSTEM_UP_TIME}
   ^System Timezone Location\.+\s${SYSTEM_TIMEZONE_LOCATION}
@@ -33,4 +40,8 @@ Start
   ^Number of WLANs\.+\s${NUMBER_WLANS}
   ^Number of Active Clients\.+\s${NUMBER_ACTIVE_CLIENTS}
   ^Burned-in MAC Address\.+\s${MAC_ADDRESS}
-  ^Maximum number of APs supported\.+\s${MAXIMUM_APS} -> Record
+  ^System ObjectID\s*\.+ ${OBJECT_ID}
+  ^Maximum number of APs supported\.+\s${MAXIMUM_APS}
+  ^State of 802.11b Network\s*\.+ ${DOT11B_STATE}
+  ^State of 802.11a Network\s*\.+ ${DOT11A_STATE}
+  ^Licensing Type\s*\.+ ${LICENSE_TYPE} -> Record
