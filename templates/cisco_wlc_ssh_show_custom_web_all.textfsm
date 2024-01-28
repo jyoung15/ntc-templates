@@ -1,0 +1,36 @@
+Value RADIUS_AUTH_METHOD (\S+)
+Value CISCO_LOGO (Enabled|Disabled)
+Value CUSTOM_LOGO (.+?)
+Value CUSTOM_TITLE (.+?)
+Value CUSTOM_MESSAGE (.+?)
+Value CUSTOM_REDIRECT_URL (\S+)
+Value WEB_AUTH_LOGIN_SUCCESS_MODE (\S+)
+Value WEB_AUTH_TYPE (.+?)
+Value LOGOUT_POPUP (Enabled|Disabled)
+Value EXTERNAL_WEB_AUTH_URL (\S+)
+Value List WLAN_ID (\d+)
+Value List WLAN_STATUS (Enabled|Disabled)
+Value List WLAN_WEB_SECURITY_POLICY (\S+)
+Value List WLAN_WEB_AUTH_TYPE (\S+)
+Value List WLAN_GLOBAL_STATUS (Enabled|Disabled)
+
+
+Start
+  ^Radius Authentication Method\s*\.+ ${RADIUS_AUTH_METHOD}
+  ^Cisco Logo\s*\.+ ${CISCO_LOGO}\s*$$
+  ^CustomLogo\s*\.+ ${CUSTOM_LOGO}\s*$$
+  ^Custom Title\s*\.+ ${CUSTOM_TITLE}\s*$$
+  ^Custom Message\s*\.+ ${CUSTOM_MESSAGE}\s*$$
+  ^Custom Redirect URL\s*\.+ ${CUSTOM_REDIRECT_URL}
+  ^Web Authentication Login Success Page Mode\s*\.+ ${WEB_AUTH_LOGIN_SUCCESS_MODE}
+  ^Web Authentication Type\s*\.+ ${WEB_AUTH_TYPE}\s*$$
+  ^Logout-popup\s*\.+ ${LOGOUT_POPUP}
+  ^External Web Authentication URL\s*\.+ ${EXTERNAL_WEB_AUTH_URL}
+  ^Configuration Per Profile: -> Profiles
+
+Profiles
+  ^WLAN ID: ${WLAN_ID}
+  ^\s+WLAN Status\s*\.+ ${WLAN_STATUS}
+  ^\s+Web Security Policy\s*\.+ ${WLAN_WEB_SECURITY_POLICY}
+  ^\s+WebAuth Type\s*\.+ ${WLAN_WEB_AUTH_TYPE}
+  ^\s+Global Status\s*\.+ ${WLAN_GLOBAL_STATUS}

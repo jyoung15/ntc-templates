@@ -1,0 +1,10 @@
+Value PRIORITY (\d)
+Value AUTH_SOURCE (\S+)
+
+Start
+  ^Management authentication server order: -> Sources
+
+Sources
+  ^\s*${PRIORITY}\s*\.+ ${AUTH_SOURCE} -> Record
+  ^\s*$$ -> Start
+  ^. -> Error
