@@ -1,12 +1,13 @@
-Value MAC_ADDRESS (([\d1-9a-f]{2}\:?){6})
-Value IP_ADDRESS (([\d1-9]+\.?){4})
-Value GROUP_NAME (\S+)
-Value MULTICAST_IP (([\d1-9]+\.?){4})
-Value STATUS (.+?)
+Value Filldown DEFAULT_DOMAIN (.+?)
+Value Key,Required MAC_ADDRESS (([\da-f]{2}:){5}[\da-f]{2})
+Value IP_ADDRESS ((\d{1,3}\.){3}\d{1,3})
+Value GROUP_NAME (.+?)
+Value MULTICAST_IP ((\d{1,3}\.){3}\d{1,3})
+Value STATUS (Up|Down)
 
 Start
   ^Mobility\s+Protocol\s+Port
-  ^Default\s+Mobility\s+Domain
+  ^Default\s+Mobility\s+Domain\s*\.+ ${DEFAULT_DOMAIN}\s*$$
   ^Multicast\s+Mode\s+
   ^Mobility\s+Domain\s+ID\s+for\s+802.11r
   ^Mobility\s+Keepalive\s+Interval
@@ -18,6 +19,6 @@ Start
 
 
 Mobility_Controllers
-  ^\s+${MAC_ADDRESS}\s+${IP_ADDRESS}\s+${GROUP_NAME}\s+${MULTICAST_IP}\s+${STATUS}s*$$ -> Record
-  ^\s*$$
+  ^\s+${MAC_ADDRESS}\s+${IP_ADDRESS}\s+${GROUP_NAME}\s+${MULTICAST_IP}\s+${STATUS}\s*$$ -> Record
+  ^\s*$$ -> Start
   ^. -> Error
