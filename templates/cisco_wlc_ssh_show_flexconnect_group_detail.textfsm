@@ -1,0 +1,107 @@
+Value Required,Key GROUP_NAME (.+?)
+Value AP_COUNT (\d+)
+Value List MEMBER_AP_ETHERNET_MAC (([\da-f]{2}:){5}[\da-f]{2})
+Value List MEMBER_AP_NAME (.+?)
+Value List MEMBER_AP_STATUS (.+?)
+Value List MEMBER_AP_MODE (.+?)
+Value List MEMBER_AP_ENTRY_TYPE (Manual|Auto|Cloud)
+Value List MEMBER_AP_PNP_CONFLICT (Yes|No)
+Value EFFICIENT_AP_IMAGE_UPGRADE (Enabled|Disabled)
+Value EFFICIENT_AP_IMAGE_JOIN (Enabled|Disabled)
+Value AUTO_APTYPE_CONVERSION (Enabled|Disabled)
+Value GROUP_RADIUS_PRIMARY_SERVER (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|Unconfigured)
+Value GROUP_RADIUS_PRIMARY_PORT (\d+|Unconfigured)
+Value GROUP_RADIUS_SECONDARY_SERVER (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|Unconfigured)
+Value GROUP_RADIUS_SECONDARY_PORT (\d+|Unconfigured)
+Value GROUP_RADIUS_RETRANSMIT (\d+)
+Value GROUP_RADIUS_TIMEOUT (\d+)
+Value AP_RADIUS (Enabled|Disabled)
+Value EAP_FAST (Enabled|Disabled)
+Value LEAP (Enabled|Disabled)
+Value EAP_TLS (Enabled|Disabled)
+Value EAP_TLS_CERT_DOWNLOAD (Enabled|Disabled)
+Value PEAP (Enabled|Disabled)
+Value MCAST_OVERRIDDEN_INT (Enabled|Disabled)
+Value DHCP_BCAST_OVERRIDDEN_INT (Enabled|Disabled)
+Value USER_COUNT (\d+)
+Value VLAN_NAME_TO_TEMPLATE_NAME (.+?)
+Value VLAN_MODE (Enabled|Disabled)
+Value NATIVE_VLAN (\d+)
+Value OVERRIDE_AP_CONFIG (Enabled|Disabled)
+Value List MAPPING_WLAN_ID (\d+)
+Value List MAPPING_VLAN_ID (\d+)
+Value List POLICY_ACL_INDEX (\d+)
+Value List POLICY_ACL_NAME (.+?)
+Value List ACL_VLAN (\d+)
+Value List ACL_INGRESS (.+?)
+Value List ACL_EGRESS (.+?)
+
+
+Start
+  ^.*show flexconnect group detail ${GROUP_NAME}\s*$$
+  ^Number of AP's in Group:\s+${AP_COUNT}
+  ^AP Ethernet MAC\s+Name\s+Status\s+Mode\s+Type\s+Conflict with PnP -> MembersHeader
+  ^Efficient AP Image Upgrade\s*\.+ ${EFFICIENT_AP_IMAGE_UPGRADE}
+  ^Efficient AP Image Join\s*\.+ ${EFFICIENT_AP_IMAGE_JOIN}
+  ^Auto ApType Conversion\s*\.+ ${AUTO_APTYPE_CONVERSION}
+  ^Group Radius Servers Settings: -> RadiusServers
+  ^Group Radius AP Settings -> RadiusSettings
+  ^WLAN ID\s+Vlan ID -> WlanVlanMappings
+
+
+# needed because there is a miscellaneous blank line after the header
+MembersHeader
+  ^--[ -]+
+  ^\s*$$ -> MembersList
+  ^.* -> Error
+
+
+MembersList
+  ^${MEMBER_AP_ETHERNET_MAC}\s+${MEMBER_AP_NAME}\s+${MEMBER_AP_STATUS}\s+${MEMBER_AP_MODE}\s+${MEMBER_AP_ENTRY_TYPE}\s+${MEMBER_AP_PNP_CONFLICT}
+  ^.* -> Start
+
+
+RadiusServers
+  ^Type\s+Server Address\s+Port
+  ^--[ -]+
+  ^\s+Primary\s+${GROUP_RADIUS_PRIMARY_SERVER}\s+${GROUP_RADIUS_PRIMARY_PORT}
+  ^\s+Secondary\s+${GROUP_RADIUS_SECONDARY_SERVER}\s+${GROUP_RADIUS_SECONDARY_PORT}
+  ^Group Radius/Local Auth Parameters -> GroupAuthParams
+
+
+GroupAuthParams
+  ^\s+Radius Retransmit Count\s*\.+ ${GROUP_RADIUS_RETRANSMIT}
+  ^\s+Active Radius Timeout\s*\.+ ${GROUP_RADIUS_TIMEOUT}
+  ^.* -> Start
+
+
+RadiusSettings
+  ^AP RADIUS server\s*\.+ ${AP_RADIUS}
+  ^EAP-FAST Auth\s*\.+ ${EAP_FAST}
+  ^LEAP Auth\s*\.+ ${LEAP}
+  ^EAP-TLS Auth\s*\.+ ${EAP_TLS}
+  ^EAP-TLS CERT Download\s*\.+ ${EAP_TLS_CERT_DOWNLOAD}
+  ^PEAP Auth\s*\.+ ${PEAP}
+  ^Multicast on Overridden interface config: ${MCAST_OVERRIDDEN_INT}
+  ^DHCP Broadcast Overridden interface config: ${DHCP_BCAST_OVERRIDDEN_INT}
+  ^Number of User's in Group: ${USER_COUNT}
+  ^Vlan\s*:\.+ ${ACL_VLAN}
+  ^\s+Ingress ACL\s*:\.+ ${ACL_INGRESS}\s*$$
+  ^\s+Egress ACL\s*:\.+ ${ACL_EGRESS}\s*$$
+  ^FlexConnect Vlan-name to Id Template name: ${VLAN_NAME_TO_TEMPLATE_NAME}\s*$$
+  ^Vlan Mode\s*\.+ ${VLAN_MODE}
+  ^Native Vlan\s*\.+ ${NATIVE_VLAN}
+  ^Override AP Config\s*\.+ ${OVERRIDE_AP_CONFIG}
+  ^Group-Specific FlexConnect Policy ACLs -> Acls
+  ^Group-Specific FlexConnect Wlan-Vlan Mapping -> Start
+
+
+WlanVlanMappings
+  ^--[ -]+
+  ^${MAPPING_WLAN_ID}\s+${MAPPING_VLAN_ID}
+  ^\s*$$ -> Start
+  ^.* -> Error
+
+Acls
+  ^\s+Acl ${POLICY_ACL_INDEX}:\s*\.+\s+${POLICY_ACL_NAME}\s*$$
+  ^.* -> RadiusSettings

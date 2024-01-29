@@ -270,6 +270,7 @@ cisco_wlc_ssh_show_client_ap_802.11a.textfsm, .*, cisco_wlc_ssh, sh[[ow]] client
 cisco_wlc_ssh_show_client_ap_802.11a.textfsm, .*, cisco_wlc_ssh, sh[[ow]] client ap 802.11b \S+
 cisco_wlc_ssh_show_client_summary.textfsm, .*, cisco_wlc_ssh, show client summary
 cisco_wlc_ssh_show_custom_web_all.textfsm, .*, cisco_wlc_ssh, show custom-web all
+cisco_wlc_ssh_show_flexconnect_group_detail.textfsm, .*, cisco_wlc_ssh, show flexconnect group detail
 cisco_wlc_ssh_show_flexconnect_group_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] fl[[exconnect]] gr[[oup]] s[[ummary]]
 cisco_wlc_ssh_show_interface_detailed_id.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] d[[etailed]] (\S+)
 cisco_wlc_ssh_show_interface_group_detailed.textfsm, .*, cisco_wlc_ssh, show interface group detailed
