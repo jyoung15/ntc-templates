@@ -1,0 +1,12 @@
+Value NAME (\b\S.+?\b)
+Value STATUS (\b\S.+?\b)
+
+
+Start
+  ^ACL Name\s+Status -> ACLs
+
+
+ACLs
+  ^--[- ]+
+  ^${NAME}\s+${STATUS}\s*$$ -> Record
+  ^.* -> Start

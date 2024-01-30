@@ -1,6 +1,5 @@
 Value Required,Filldown ACL_NAME (.+?)
 Value Required,Key INDEX (\d+)
-Value Required DIRECTION (In|Out|Any)
 Value Required SOURCE (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
 Value Required DESTINATION (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
 Value Required PROTOCOL (\d+|Any)
@@ -8,15 +7,14 @@ Value Required SOURCE_PORT (\d+-\d+)
 Value Required DESTINATION_PORT (\d+-\d+)
 Value DSCP (\S+)
 Value Required ACTION (Permit|Deny)
-Value COUNTER (\d+)
 
 
 Start
-  ^.*?show acl detailed ${ACL_NAME}\s*$$
-  ^Index\s+Dir\s+IP Address/Netmask\s+IP Address/Netmask\s+Prot\s+Range\s+Range\s+DSCP\s+Action\s+Counter -> Rules
+  ^show flexconnect acl detailed ${ACL_NAME}\s*$$
+  ^Index\s+IP Address/Netmask\s+IP Address/Netmask\s+(Prot|Port)\s+Range\s+Range\s+DSCP\s+Action -> Rules
 
 Rules
   ^--[- ]+
-  ^\s*${INDEX}\s+${DIRECTION}\s+${SOURCE}\s+${DESTINATION}\s+${PROTOCOL}\s+${SOURCE_PORT}\s+${DESTINATION_PORT}\s+${DSCP}\s+${ACTION}\s+${COUNTER}\s*$$ -> Record
+  ^\s+${INDEX}\s+${SOURCE}\s+${DESTINATION}\s+${PROTOCOL}\s+${SOURCE_PORT}\s+${DESTINATION_PORT}\s+${DSCP}\s+${ACTION} -> Record
   ^\s*$$ -> Start
   ^.* -> Error

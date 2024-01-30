@@ -257,41 +257,42 @@ cisco_nxos_show_fex.template, .*, cisco_nxos, sh[[ow]] fex
 cisco_nxos_show_vpc.template, .*, cisco_nxos, sh[[ow]] vpc
 cisco_nxos_show_vrf.template, .*, cisco_nxos, sh[[ow]] vrf
 
-cisco_wlc_ssh_show_aaa_auth.textfsm, .*, cisco_wlc_ssh, show aaa auth
-cisco_wlc_ssh_show_acl_detailed.textfsm, .*, cisco_wlc_ssh, show acl detailed
-cisco_wlc_ssh_show_acl_summary.textfsm, .*, cisco_wlc_ssh, show acl summary
-cisco_wlc_ssh_show_advanced_802.11a_summary.textfsm, .*, cisco_wlc_ssh, show advanced 802.11a summary
-cisco_wlc_ssh_show_ap_auto-rf_802.11a.textfsm, .*, cisco_wlc_ssh, show ap auto-rf 802.11a \S+
-cisco_wlc_ssh_show_ap_cdp_neigh_all.textfsm, .*, cisco_wlc_ssh, show ap cdp neighbor all
-cisco_wlc_ssh_show_ap_config_general.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ap con[[fig]] ge[[neral]]
-cisco_wlc_ssh_show_ap_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ap sum[[mary]]
+cisco_wlc_ssh_show_flexconnect_group_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] fl[[exconnect]] gr[[oup]] s[[ummary]]
+cisco_wlc_ssh_show_interface_group_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] gr[[oup]] s[[ummary]]
+cisco_wlc_ssh_show_interface_detailed_id.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] d[[etailed]] (\S+)
 cisco_wlc_ssh_show_cdp_neighbors_detail.textfsm, .*, cisco_wlc_ssh, sh[[ow]] c[[dp]] neig[[hbors]] det[[ail]]
-cisco_wlc_ssh_show_client_ap_802.11a.textfsm, .*, cisco_wlc_ssh, sh[[ow]] client ap 802.11a \S+
-cisco_wlc_ssh_show_client_ap_802.11a.textfsm, .*, cisco_wlc_ssh, sh[[ow]] client ap 802.11b \S+
+cisco_wlc_ssh_show_flexconnect_acl_summary.textfsm, .*, cisco_wlc_ssh, show flexconnect( ipv6)? acl summary
+cisco_wlc_ssh_show_flexconnect_acl_detailed.textfsm, .*, cisco_wlc_ssh, show flexconnect acl detail[[ed]]
+cisco_wlc_ssh_show_ipv6_acl_detailed.textfsm, .*, cisco_wlc_ssh, show( flexconnect)? ipv6 acl detailed
+cisco_wlc_ssh_show_advanced_802.11a_summary.textfsm, .*, cisco_wlc_ssh, show advanced 802.11a summary
+cisco_wlc_ssh_show_flexconnect_group_detail.textfsm, .*, cisco_wlc_ssh, show flexconnect group detail
+cisco_wlc_ssh_show_interface_group_detailed.textfsm, .*, cisco_wlc_ssh, show interface group detailed
+cisco_wlc_ssh_show_ap_config_general.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ap con[[fig]] ge[[neral]]
+cisco_wlc_ssh_show_interface_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] s[[ummary]]
+cisco_wlc_ssh_show_client_ap_802.11.textfsm, .*, cisco_wlc_ssh, sh[[ow]] client ap 802.11[ab] \S+
+cisco_wlc_ssh_show_ap_auto-rf_802.11a.textfsm, .*, cisco_wlc_ssh, show ap auto-rf 802.11[ab] \S+
+cisco_wlc_ssh_show_mobility_sum.textfsm, .*, cisco_wlc_ssh, sh[[ow]] mo[[bility]] su[[mmary]]
+cisco_wlc_ssh_show_tacacs_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ta[[cacs]] s[[ummary]]
+cisco_wlc_ssh_show_ap_cdp_neigh_all.textfsm, .*, cisco_wlc_ssh, show ap cdp neighbor all
+cisco_wlc_ssh_show_network_summary.textfsm, .*, cisco_wlc_ssh, show network summary
+cisco_wlc_ssh_show_ap_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ap sum[[mary]]
 cisco_wlc_ssh_show_client_summary.textfsm, .*, cisco_wlc_ssh, show client summary
 cisco_wlc_ssh_show_custom_web_all.textfsm, .*, cisco_wlc_ssh, show custom-web all
-cisco_wlc_ssh_show_flexconnect_group_detail.textfsm, .*, cisco_wlc_ssh, show flexconnect group detail
-cisco_wlc_ssh_show_flexconnect_group_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] fl[[exconnect]] gr[[oup]] s[[ummary]]
-cisco_wlc_ssh_show_interface_detailed_id.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] d[[etailed]] (\S+)
-cisco_wlc_ssh_show_interface_group_detailed.textfsm, .*, cisco_wlc_ssh, show interface group detailed
-cisco_wlc_ssh_show_interface_group_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] gr[[oup]] s[[ummary]]
-cisco_wlc_ssh_show_interface_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] s[[ummary]]
-cisco_wlc_ssh_show_ipv6_acl_detailed.textfsm, .*, cisco_wlc_ssh, show ipv6 acl detailed
-cisco_wlc_ssh_show_logging.textfsm, .*, cisco_wlc_ssh, show logging
-cisco_wlc_ssh_show_mobility_sum.textfsm, .*, cisco_wlc_ssh, sh[[ow]] mo[[bility]] su[[mmary]]
-cisco_wlc_ssh_show_network_summary.textfsm, .*, cisco_wlc_ssh, show network summary
 cisco_wlc_ssh_show_radius_summary.textfsm, .*, cisco_wlc_ssh, show radius summary
 cisco_wlc_ssh_show_snmpcommunity.textfsm, .*, cisco_wlc_ssh, show snmpcommunity
-cisco_wlc_ssh_show_snmptrap.textfsm, .*, cisco_wlc_ssh, show snmptrap
-cisco_wlc_ssh_show_snmpv3user.textfsm, .*, cisco_wlc_ssh, show snmpv3user
+cisco_wlc_ssh_show_wlan_apgroups.textfsm, .*, cisco_wlc_ssh, show wlan apgroups
+cisco_wlc_ssh_show_acl_detailed.textfsm, .*, cisco_wlc_ssh, show acl detailed
+cisco_wlc_ssh_show_wlan_summary.textfsm, .*, cisco_wlc_ssh, show wlan summary
+cisco_wlc_ssh_show_acl_summary.textfsm, .*, cisco_wlc_ssh, show acl summary
 cisco_wlc_ssh_show_snmpversion.textfsm, .*, cisco_wlc_ssh, show snmpversion
 cisco_wlc_ssh_show_sysinfo.textfsm, .*, cisco_wlc_ssh, sh[[ow]] sysi[[nfo]]
-cisco_wlc_ssh_show_tacacs_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ta[[cacs]] s[[ummary]]
-cisco_wlc_ssh_show_time.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ti[[me]]
+cisco_wlc_ssh_show_snmpv3user.textfsm, .*, cisco_wlc_ssh, show snmpv3user
 cisco_wlc_ssh_show_trapflags.textfsm, .*, cisco_wlc_ssh, show trapflags
+cisco_wlc_ssh_show_aaa_auth.textfsm, .*, cisco_wlc_ssh, show aaa auth
+cisco_wlc_ssh_show_snmptrap.textfsm, .*, cisco_wlc_ssh, show snmptrap
+cisco_wlc_ssh_show_time.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ti[[me]]
+cisco_wlc_ssh_show_logging.textfsm, .*, cisco_wlc_ssh, show logging
 cisco_wlc_ssh_show_wlan.textfsm, .*, cisco_wlc_ssh, show wlan \d+
-cisco_wlc_ssh_show_wlan_apgroups.textfsm, .*, cisco_wlc_ssh, show wlan apgroups
-cisco_wlc_ssh_show_wlan_summary.textfsm, .*, cisco_wlc_ssh, show wlan summary
 
 cisco_xr_show_controllers_fabric_fia_errors_ingress_location.template, .*, cisco_xr, sh[[ow]] contr[[ollers]] fabric fi[[a]] err[[ors]] in[[gress]] loc[[ation]]
 cisco_xr_show_controllers_fabric_fia_drops_ingress_location.template, .*, cisco_xr, sh[[ow]] contr[[ollers]] fabric fi[[a]] dr[[ops]] in[[gress]] loc[[ation]]
