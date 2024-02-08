@@ -1,0 +1,18 @@
+# This template is currently only designed to parse the SNMP
+# communities from the `show run-config startup-commands` since those
+# values (rw) are masked in the `show snmpcommunity` output.
+# It is not added to the index, and must be run manually with TextFSM.
+#
+Value Required,Key,Filldown COMMUNITY (.+?)
+Value ACCESS_MODE (rw|ro)
+Value Required STATUS (enable|disable)
+Value Required CLIENT_IP ((\d{1,3}\.){3}\d{1,3})
+Value Required CLIENT_MASK ((\d{1,3}\.){3}\d{1,3})
+
+
+Start
+  ^config snmp community create ${COMMUNITY}\s*$$
+  ^config snmp community accessmode ${ACCESS_MODE} ${COMMUNITY}\s*$$
+  ^config snmp community ipaddr ${CLIENT_IP} ${CLIENT_MASK} ${COMMUNITY}\s*$$
+  # ASSumes `mode` setting is the last command for each community
+  ^config snmp community mode ${STATUS} ${COMMUNITY}\s*$$ -> Record
