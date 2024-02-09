@@ -1,4 +1,4 @@
-Value INTERFACE_NAME (\S+)
+Value Key,Required INTERFACE_NAME (\S+)
 Value MAC_ADDRESS (([0-9a-f]{2}:){5}[0-9a-f]{2})
 Value IP_ADDRESS (\d+.\d+.\d+.\d+)
 Value NETMASK (\d+.\d+.\d+.\d+)
@@ -11,6 +11,7 @@ Value AP_MANAGER (Yes|No)
 Value GUEST (Yes|No)
 Value DHCP_PROXY_MODE (\S+)
 Value IPV4_ACL (.+?)
+Value DHCP_PROTOCOL (Enabled|Disabled)
 
 Start
   ^Interface\s+Name\.+\s+${INTERFACE_NAME}\s*$$ -> Interface
@@ -28,6 +29,7 @@ Interface
   ^VLAN\s*\.+ ${VLAN}\s*$$
   ^DHCP\s+Proxy\s+Mode\s*\.+ ${DHCP_PROXY_MODE}\s*$$
   ^IPv4\s+ACL\s*\.+ ${IPV4_ACL}\s*$$
+  ^DHCP\s+Protocol\s*\.+ ${DHCP_PROTOCOL}\s*$$
   ^\s*$$ -> Record Start
   # ^External\s+NAT\s+IP\s+State.*$$
   # ^External\s+NAT\s+IP\s+Address.*$$
