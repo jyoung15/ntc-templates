@@ -78,6 +78,10 @@ Value WPA_SAE (Enabled|Disabled)
 Value FT_OVER_DS (Enabled|Disabled)
 Value CKIP (Enabled|Disabled)
 Value WEB_AUTH (Enabled|Disabled)
+Value WEB_AUTH_TIMEOUT (\d+)
+Value WEB_AUTH_SVR_PRECEDENCE_PRIMARY (local|radius|ldap)
+Value WEB_AUTH_SVR_PRECEDENCE_SECONDARY (local|radius|ldap)
+Value WEB_AUTH_SVR_PRECEDENCE_TERTIARY (local|radius|ldap)
 Value WEB_PASSTHROUGH (Enabled|Disabled)
 Value FLEXCONNECT_LOCAL_SWITCHING (Enabled|Disabled)
 Value CLIENT_MFP (.+)
@@ -106,7 +110,6 @@ Value List ANCHOR_WLAN_ID (\d+)
 Value List ANCHOR_IP (\d+\.\d+\.\d+\.\d+)
 Value List ANCHOR_STATUS (Up|Down)
 Value List ANCHOR_PRIORITY (\d+)
-
 
 Start
   ^WLAN Identifier\s*\.+ ${WLAN_ID}
@@ -165,6 +168,8 @@ Start
   ^\s+FT Over-The-DS mode\s*\.+ ${FT_OVER_DS}
   ^\s+CKIP\s*\.+ ${CKIP}
   ^\s+Web Based Authentication\s*\.+ ${WEB_AUTH}
+  ^\s+Web Authentication Timeout\s*\.+ ${WEB_AUTH_TIMEOUT}
+  ^\s+Web Authentication server precedence: -> WebAuthPrecedence
   ^\s+Web-Passthrough\s*\.+ ${WEB_PASSTHROUGH}
   ^\s+Client MFP\s*\.+ ${CLIENT_MFP}
   ^\s+PMF\s*\.+ ${PMF}
@@ -230,3 +235,9 @@ RateLimPerClient
   ^Average Realtime Data Rate\s*\.+\s+${RATE_LIM_CLNT_AVG_RT_UP}\s+${RATE_LIM_CLNT_AVG_RT_DN}
   ^Burst Data Rate\s*\.+\s+${RATE_LIM_CLNT_BST_UP}\s+${RATE_LIM_CLNT_BST_DN}
   ^Burst Realtime Data Rate\s*\.+\s+${RATE_LIM_CLNT_BST_RT_UP}\s+${RATE_LIM_CLNT_BST_RT_DN} -> Start
+
+WebAuthPrecedence
+  ^\s+1\s*\.+ ${WEB_AUTH_SVR_PRECEDENCE_PRIMARY}\s*$$
+  ^\s+2\s*\.+ ${WEB_AUTH_SVR_PRECEDENCE_SECONDARY}\s*$$
+  ^\s+3\s*\.+ ${WEB_AUTH_SVR_PRECEDENCE_TERTIARY}\s*$$
+  ^.* -> Start
