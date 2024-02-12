@@ -88,6 +88,7 @@ Value CLIENT_MFP (.+)
 Value PMF (.+)
 Value AVC_VISIBILITY (Enabled|Disabled)
 Value AVC_PROFILE (.+)
+Value SIP_CAC_BUSY_POLICY (Enabled|Disabled)
 Value OPT_ROAMING (Enabled|Disabled)
 Value DOT11K_NEIGHBOR_LIST (Enabled|Disabled)
 Value DOT11K_NEIGHBOR_LIST_DUAL_BAND (Enabled|Disabled)
@@ -175,6 +176,7 @@ Start
   ^\s+PMF\s*\.+ ${PMF}
   ^AVC Visibilty\s*\.+ ${AVC_VISIBILITY}
   ^AVC Profile Name\s*\.+ ${AVC_PROFILE}
+  ^SIP CAC Fail Send-486-Busy Policy\s*\.+ ${SIP_CAC_BUSY_POLICY}
   ^Assisted Roaming Prediction Optimization\s*\.+ ${OPT_ROAMING}
   ^802.11k Neighbor List\s*\.+ ${DOT11K_NEIGHBOR_LIST}
   ^802.11k Neighbor List Dual Band\s*\.+ ${DOT11K_NEIGHBOR_LIST_DUAL_BAND}
