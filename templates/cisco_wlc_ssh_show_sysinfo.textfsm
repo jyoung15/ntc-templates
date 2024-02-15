@@ -1,9 +1,9 @@
-Value PRODUCT_VERSION (.*)
+Value Required SYSTEM_NAME (.+?)
+Value Required PRODUCT_VERSION (.+?)
 Value BOOTLOADER_VERSION (.*)
 Value FIELD_RECOVERY_IMAGE_VERSION (.*)
 Value FIRMWARE_VERSION (.*)
 Value BUILD_TYPE (.*)
-Value SYSTEM_NAME (.*)
 Value SYSTEM_LOCATION (.*)
 Value SYSTEM_CONTACT (.*)
 Value IP_ADDRESS (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
@@ -20,15 +20,17 @@ Value LICENSE_TYPE (\S+)
 Value DOT11B_STATE (Enabled|Disabled)
 Value DOT11A_STATE (Enabled|Disabled)
 Value IPV6_ADDRESS ([\da-f:]+)
+# use `strip_prompt=False` to get prompt
+Value PROMPT ([^)]+)
 
 
 Start
-  ^Product Version\.+\s${PRODUCT_VERSION}
+  ^Product Version\.+\s${PRODUCT_VERSION}\s*$$
   ^Bootloader Version\.+\s${BOOTLOADER_VERSION}
   ^Field Recovery Image Version\.+\s${FIELD_RECOVERY_IMAGE_VERSION}
   ^Firmware Version\.+\s${FIRMWARE_VERSION}
   ^Build Type\.+\s${BUILD_TYPE}
-  ^System Name\.+\s${SYSTEM_NAME}
+  ^System Name\.+\s${SYSTEM_NAME}\s*$$
   ^System Location\.+\s${SYSTEM_LOCATION}
   ^System Contact\.+\s${SYSTEM_CONTACT}
   ^IP Address\s*\.+\s${IP_ADDRESS}
@@ -44,4 +46,5 @@ Start
   ^Maximum number of APs supported\.+\s${MAXIMUM_APS}
   ^State of 802.11b Network\s*\.+ ${DOT11B_STATE}
   ^State of 802.11a Network\s*\.+ ${DOT11A_STATE}
-  ^Licensing Type\s*\.+ ${LICENSE_TYPE} -> Record
+  ^\(${PROMPT}\) >
+  ^Licensing Type\s*\.+ ${LICENSE_TYPE}
