@@ -10,7 +10,7 @@ Value Required ACTION (Permit|Deny)
 
 
 Start
-  ^.+>\s*show flexconnect acl detailed ${ACL_NAME}\s*$$
+  ^.*?show flexconnect acl detailed ${ACL_NAME}\s*$$
   ^Index\s+IP Address/Netmask\s+IP Address/Netmask\s+(Prot|Port)\s+Range\s+Range\s+DSCP\s+Action -> Rules
 
 Rules
