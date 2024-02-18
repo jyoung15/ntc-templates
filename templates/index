@@ -274,6 +274,7 @@ cisco_wlc_ssh_show_ap_auto-rf_802.11a.textfsm, .*, cisco_wlc_ssh, show ap auto-r
 cisco_wlc_ssh_show_mobility_sum.textfsm, .*, cisco_wlc_ssh, sh[[ow]] mo[[bility]] su[[mmary]]
 cisco_wlc_ssh_show_tacacs_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ta[[cacs]] s[[ummary]]
 cisco_wlc_ssh_show_ap_cdp_neigh_all.textfsm, .*, cisco_wlc_ssh, show ap cdp neighbor all
+cisco_wlc_ssh_show_rogue_ap_summary.textfsm, .*, cisco_wlc_ssh, show rogue ap summary
 cisco_wlc_ssh_show_network_summary.textfsm, .*, cisco_wlc_ssh, show network summary
 cisco_wlc_ssh_show_ap_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ap sum[[mary]]
 cisco_wlc_ssh_show_client_summary.textfsm, .*, cisco_wlc_ssh, show client summary

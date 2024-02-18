@@ -1,0 +1,31 @@
+Value SECURITY_LEVEL (.+?)
+Value PENDING_TIME (.+?)
+Value AUTO_CONTAIN_ON_WIRE (.+?)
+Value AUTO_CONTAIN_SAME_SSID (.+?)
+Value AUTO_CONTAIN_VALID_CLIENTS (.+?)
+Value ROGUE_TIMEOUT (\d+)
+Value REPORT_INTERVAL (\d+)
+Value MIN_RSSI (-\d+)
+Value TRANSIENT_INTERVAL (\d+)
+Value CLIENT_NUM_THRESHOLD (\d+)
+Value AAA_VALIDATE (.+?)
+Value AAA_INTERVAL (.+?)
+Value TOTAL_ROGUES_SUPPORTED (\d+)
+Value TOTAL_ROGUES_CLASSIFIED (\d+)
+
+Start
+  ^Rogue Detection Security Level\s*\.+ ${SECURITY_LEVEL}\s*$$
+  ^Rogue Pending Time\s*\.+ ${PENDING_TIME}\s*$$
+  ^Rogue on wire Auto-Contain\s*\.+ ${AUTO_CONTAIN_ON_WIRE}\s*$$
+  ^Rogue using our SSID Auto-Contain\s*\.+ ${AUTO_CONTAIN_SAME_SSID}\s*$$
+  ^Valid client on rogue AP Auto-Contain\s*\.+ ${AUTO_CONTAIN_VALID_CLIENTS}\s*$$
+  ^Rogue AP timeout\s*\.+ ${ROGUE_TIMEOUT}
+  ^Rogue Detection Report Interval\s*\.+ ${REPORT_INTERVAL}
+  ^Rogue Detection Min Rssi\s*\.+ ${MIN_RSSI}
+  ^Rogue Detection Transient Interval\s*\.+ ${TRANSIENT_INTERVAL}
+  ^Rogue Detection Client Num Threshold\s*\.+ ${CLIENT_NUM_THRESHOLD}
+  ^Validate rogue AP against AAA\s*\.+ ${AAA_VALIDATE}\s*$$
+  ^Rogue AP AAA validation interval\s*\.+ ${AAA_INTERVAL}\s*$$
+  ^Total Rogues(AP+Ad-hoc) supported\s*\.+ ${TOTAL_ROGUES_SUPPORTED}
+  ^Total Rogues classified\s*\.+ ${TOTAL_ROGUES_CLASSIFIED}
+  ^MAC Address -> EOF
