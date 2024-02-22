@@ -32,6 +32,8 @@ Value List MAPPING_WLAN_ID (\d+)
 Value List MAPPING_VLAN_ID (\d+)
 Value List POLICY_ACL_INDEX (\d+)
 Value List POLICY_ACL_NAME (.+?)
+Value List POLICY_IPV6_ACL_INDEX (\d+)
+Value List POLICY_IPV6_ACL_NAME (.+?)
 Value List ACL_VLAN (\d+)
 Value List ACL_INGRESS (.+?)
 Value List ACL_EGRESS (.+?)
@@ -93,6 +95,7 @@ RadiusSettings
   ^Native Vlan\s*\.+ ${NATIVE_VLAN}
   ^Override AP Config\s*\.+ ${OVERRIDE_AP_CONFIG}
   ^Group-Specific FlexConnect Policy ACLs -> Acls
+  ^Group-Specific FlexConnect Policy IPv6 ACLs -> AclsV6
   ^Group-Specific FlexConnect Wlan-Vlan Mapping -> Start
 
 
@@ -104,4 +107,9 @@ WlanVlanMappings
 
 Acls
   ^\s+Acl ${POLICY_ACL_INDEX}:\s*\.+\s+${POLICY_ACL_NAME}\s*$$
+  ^Group-Specific FlexConnect Policy IPv6 ACLs -> AclsV6
+  ^.* -> RadiusSettings
+
+AclsV6
+  ^\s+Acl ${POLICY_IPV6_ACL_INDEX}:\s*\.+\s+${POLICY_IPV6_ACL_NAME}\s*$$
   ^.* -> RadiusSettings
