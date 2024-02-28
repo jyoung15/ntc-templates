@@ -27,7 +27,7 @@ NTPv3
   ^\s*NTP [pP]olling [iI]nterval\s*\.+\s+${NTP_POLLING_INTERVAL}\s*$$
   #
   # NTP Server Table
-  ^Index\s+NTP Key Index\s+NTP Server\s+Status\s+NTP Msg Auth Status\s*$$ -> NTPv3_Servers
+  ^\s*Index\s+NTP Key Index\s+NTP Server\s+Status\s+NTP Msg Auth Status\s*$$ -> NTPv3_Servers
   ^\s*$$
 
 NTPv3_Servers
