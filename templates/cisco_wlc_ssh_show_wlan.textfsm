@@ -21,6 +21,7 @@ Value SLEEP_CLIENT (.+)
 Value SLEEP_CLIENT_AUTO_AUTH (Enabled|Disabled)
 Value WEB_AUTH_CAPTIVE_BYPASS (.+)
 Value NAS_ID (.+)
+Value COVERAGE_HOLE_DETECTION (Enabled|Disabled)
 Value INTERFACE (.+)
 Value WLAN_ACL_IPV4 (.+)
 Value WLAN_ACL_IPV6 (.+)
@@ -136,6 +137,7 @@ Start
   ^Sleep Client Auto Auth Feature\s*\.+ ${SLEEP_CLIENT_AUTO_AUTH}
   ^Web Auth Captive Bypass Mode\s*\.+ ${WEB_AUTH_CAPTIVE_BYPASS}
   ^NAS-identifier\s*\.+ ${NAS_ID}
+  ^CHD per WLAN\s*\.+ ${COVERAGE_HOLE_DETECTION}
   ^Interface\s*\.+ ${INTERFACE}
   ^WLAN IPv4 ACL\s*\.+ ${WLAN_ACL_IPV4}
   ^WLAN IPv6 ACL\s*\.+ ${WLAN_ACL_IPV6}
