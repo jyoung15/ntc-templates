@@ -4,6 +4,7 @@ Value Required SSID (.+)
 Value Required STATUS (Enabled|Disabled)
 Value MAC_FILTERING (Enabled|Disabled)
 Value BROADCAST_SSID (Enabled|Disabled)
+Value RANDOM_MAC_FILTERING (Enabled|Disabled)
 Value AAA_OVERRIDE (Enabled|Disabled)
 Value RADIUS_PROFILING (Enabled|Disabled)
 Value RADIUS_DHCP_PROFILING (Enabled|Disabled)
@@ -17,6 +18,7 @@ Value EXCLUSIONLIST_TIMEOUT (\d+)
 Value SESSION_TIMEOUT (\d+)
 Value USER_IDLE_TIMEOUT (\d+|Disabled)
 Value SLEEP_CLIENT (.+)
+Value SLEEP_CLIENT_AUTO_AUTH (Enabled|Disabled)
 Value WEB_AUTH_CAPTIVE_BYPASS (.+)
 Value NAS_ID (.+)
 Value INTERFACE (.+)
@@ -24,6 +26,8 @@ Value WLAN_ACL_IPV4 (.+)
 Value WLAN_ACL_IPV6 (.+)
 Value WLAN_ACL_LAYER2 (.+)
 Value WLAN_ACL_URL (.+)
+Value FLEX_ACL_IPV4 (.+)
+Value FLEX_ACL_IPV6 (.+)
 Value MDNS_STATUS (Enabled|Disabled)
 Value MDNS_PROFILE (.+)
 Value DHCP_SERVER (.+)
@@ -111,6 +115,9 @@ Value List ANCHOR_WLAN_ID (\d+)
 Value List ANCHOR_IP (\d+\.\d+\.\d+\.\d+)
 Value List ANCHOR_STATUS (Up|Down)
 Value List ANCHOR_PRIORITY (\d+)
+Value DOT11AX_ADMIN_STATE (Enabled|Disabled)
+Value OWE_TRANSITION_MODE (Enabled|Disabled)
+Value AUTO_KEY_PSK (Enabled|Disabled)
 
 Start
   ^WLAN Identifier\s*\.+ ${WLAN_ID}
@@ -119,12 +126,14 @@ Start
   ^Status\s*\.+ ${STATUS}
   ^MAC Filtering\s*\.+ ${MAC_FILTERING}
   ^Broadcast SSID\s*\.+ ${BROADCAST_SSID}
+  ^Random MAC Filtering\s*\.+ ${RANDOM_MAC_FILTERING}
   ^AAA Policy Override\s*\.+ ${AAA_OVERRIDE}
   ^Client Profiling Status -> ClientProfiling
   ^Exclusionlist Timeout\s*\.+ ${EXCLUSIONLIST_TIMEOUT} seconds
   ^Session Timeout\s*\.+ ${SESSION_TIMEOUT} seconds
   ^User Idle Timeout\s*\.+ ${USER_IDLE_TIMEOUT}
   ^Sleep Client\s*\.+ ${SLEEP_CLIENT}
+  ^Sleep Client Auto Auth Feature\s*\.+ ${SLEEP_CLIENT_AUTO_AUTH}
   ^Web Auth Captive Bypass Mode\s*\.+ ${WEB_AUTH_CAPTIVE_BYPASS}
   ^NAS-identifier\s*\.+ ${NAS_ID}
   ^Interface\s*\.+ ${INTERFACE}
@@ -155,7 +164,7 @@ Start
   ^\s+802.11 Authentication:?\s*\.+ ${DOT11_AUTH}
   ^\s+FT Support\s*\.+ ${FT_SUPPORT}
   ^\s+Static WEP Keys\s*\.+ ${STATIC_WEP}
-  ^\s+802.1X\s*\.+ ${DOT1X}
+  ^\s+802\.1X\s*\.+ ${DOT1X}
   ^\s+Wi-Fi Protected Access.*\.+ ${WPA_FLAG}
   ^\s+WPA\D.*\.+ ${WPA}
   ^\s+WPA2.*\.+ ${WPA2}
@@ -165,9 +174,19 @@ Start
   ^\s+CCMP256 Cipher\s*\.+ ${CCMP256}
   ^\s+GCMP128 Cipher\s*\.+ ${GCMP128}
   ^\s+GCMP256 Cipher\s*\.+ ${GCMP256}
-  ^\s+Auth Key Management -> AKM
+  ^\s+Auth Key Management
+  ^\s+802\.1x\s*\.+ ${WPA_DOT1X}
+  ^\s+PSK\s*\.+ ${WPA_PSK}
+  ^\s+PSK-SHA2\s*\.+ ${WPA_PSK_SHA2}
+  ^\s+CCKM\s*\.+ ${WPA_CCKM}
+  ^\s+FT-1X.*\.+ ${WPA_FT_1X}
+  ^\s+FT-PSK.*\.+ ${WPA_FT_PSK}
+  ^\s+OWE\s*\.+ ${WPA_OWE}
+  ^\s+SAE\s*\.+ ${WPA_SAE} -> Start
   ^\s+FT Over-The-DS mode\s*\.+ ${FT_OVER_DS}
   ^\s+CKIP\s*\.+ ${CKIP}
+  ^\s+OWE Transition Mode\s*\.+ ${OWE_TRANSITION_MODE}
+  ^\s+Auto Key PSK\s*\.+ ${AUTO_KEY_PSK}
   ^\s+Web Based Authentication\s*\.+ ${WEB_AUTH}
   ^\s+Web Authentication Timeout\s*\.+ ${WEB_AUTH_TIMEOUT}
   ^\s+Web Authentication server precedence: -> WebAuthPrecedence
@@ -185,18 +204,11 @@ Start
   ^802.11v BSS Transition Service\s*\.+ ${DOT11V_BSS_TRANS}
   ^802.11v BSS Transition Disassoc Imminent\s*\.+ ${DOT11V_BSS_TRANS_DIS_IMM}
   ^802.11v BSS Transition Neigh List Dual Band\s*\.+ ${DOT11V_BSS_TRANS_NEIGH_DUAL}
+  ^11ax Admin state\s*\.+ ${DOT11AX_ADMIN_STATE}
   ^\s*Mobility Anchor List -> Anchors
+  ^Flex Acl Name\s*\.+ ${FLEX_ACL_IPV4}\s*$$
+  ^Flex IPv6 Acl Name\s*\.+ ${FLEX_ACL_IPV6}\s*$$
   ^U3-Reporting Interval -> Record
-
-AKM
-  ^\s+802\.1x\s*\.+ ${WPA_DOT1X}
-  ^\s+PSK\s*\.+ ${WPA_PSK}
-  ^\s+PSK-SHA2\s*\.+ ${WPA_PSK_SHA2}
-  ^\s+CCKM\s*\.+ ${WPA_CCKM}
-  ^\s+FT-1X.*\.+ ${WPA_FT_1X}
-  ^\s+FT-PSK.*\.+ ${WPA_FT_PSK}
-  ^\s+OWE\s*\.+ ${WPA_OWE}
-  ^\s+SAE\s*\.+ ${WPA_SAE} -> Start
 
 ClientProfiling
   ^\s+Radius Profiling\s*\.+ ${RADIUS_PROFILING} -> RadiusProfiling
