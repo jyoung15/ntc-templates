@@ -14,6 +14,7 @@ Value LOCAL_DHCP_PROFILING (Enabled|Disabled)
 Value LOCAL_HTTP_PROFILING (Enabled|Disabled)
 Value RADIUS_NAC (Enabled|Disabled)
 Value SNMP_NAC (Enabled|Disabled)
+Value EXCLUSIONLIST (Enabled|Disabled)
 Value EXCLUSIONLIST_TIMEOUT (\d+)
 Value SESSION_TIMEOUT (\d+)
 Value USER_IDLE_TIMEOUT (\d+|Disabled)
@@ -130,6 +131,7 @@ Start
   ^Random MAC Filtering\s*\.+ ${RANDOM_MAC_FILTERING}
   ^AAA Policy Override\s*\.+ ${AAA_OVERRIDE}
   ^Client Profiling Status -> ClientProfiling
+  ^Exclusionlist\s*\.+ ${EXCLUSIONLIST}
   ^Exclusionlist Timeout\s*\.+ ${EXCLUSIONLIST_TIMEOUT} seconds
   ^Session Timeout\s*\.+ ${SESSION_TIMEOUT} seconds
   ^User Idle Timeout\s*\.+ ${USER_IDLE_TIMEOUT}
