@@ -22,16 +22,24 @@ Start
   ^\s*NTP [vV]ersion\s*\.+\s+${NTP_VERSION}\s*$$ -> Continue
   ^\s*NTP [vV]ersion\s*\.+\s+3 -> NTPv3
   ^\s*NTP [vV]ersion\s*\.+\s+4 -> NTPv4
+  ^\s*NTP [pP]olling [iI]nterval\s*\.+\s+${NTP_POLLING_INTERVAL}\s*$$ -> NTPv3
 
 NTPv3
   ^\s*NTP [pP]olling [iI]nterval\s*\.+\s+${NTP_POLLING_INTERVAL}\s*$$
   #
   # NTP Server Table
   ^\s*Index\s+NTP Key Index\s+NTP Server\s+Status\s+NTP Msg Auth Status\s*$$ -> NTPv3_Servers
+  ^\s*Index\s+NTP Key Index\s+NTP Server\s+NTP Msg Auth Status\s*$$ -> NTPv3_Servers_Legacy
   ^\s*$$
 
 NTPv3_Servers
   ^\s+${INDEX}\s+${NTP_KEY_INDEX}\s+${NTP_SERVER}\s+${STATUS}\s+${NTP_MSG_AUTH_STATUS}\s*$$
+  ^\s*[-\s]+$$
+  ^\s*$$ -> Record Start
+  ^. -> Error
+
+NTPv3_Servers_Legacy
+  ^\s+${INDEX}\s+${NTP_KEY_INDEX}\s+${NTP_SERVER}\s+${NTP_MSG_AUTH_STATUS}\s*$$
   ^\s*[-\s]+$$
   ^\s*$$ -> Record Start
   ^. -> Error
