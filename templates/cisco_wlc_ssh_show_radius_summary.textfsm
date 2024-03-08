@@ -20,6 +20,8 @@ Value ACCT_PORT (\d+)
 Value ACCT_STATE (Enabled|Disabled)
 Value ACCT_TIMEOUT (\d+)
 Value ACCT_MGMT_TIMEOUT (\d+)
+Value AUTH_ACTIVE (\*)
+Value ACCT_ACTIVE (\*)
 
 
 Start
@@ -38,8 +40,8 @@ Fallback
   ^\s+Interval -> Start
 
 AuthServers
-  ^${AUTH_IDX}\s+(\*\s+)?${AUTH_TYPE}\s+${AUTH_ADDRESS}\s+${AUTH_PORT}\s+${AUTH_STATE}\s+${AUTH_TIMEOUT}\s+${AUTH_MGMT_TIMEOUT}\s+${AUTH_COA} -> Record
+  ^${AUTH_IDX}\s+(${AUTH_ACTIVE}\s+)?${AUTH_TYPE}\s+${AUTH_ADDRESS}\s+${AUTH_PORT}\s+${AUTH_STATE}\s+${AUTH_TIMEOUT}\s+${AUTH_MGMT_TIMEOUT}\s+${AUTH_COA} -> Record
   ^Accounting Servers -> AcctServers
 
 AcctServers
-  ^${ACCT_IDX}\s+(\*\s+)?${ACCT_TYPE}\s+${ACCT_ADDRESS}\s+${ACCT_PORT}\s+${ACCT_STATE}\s+${ACCT_TIMEOUT}\s+${ACCT_MGMT_TIMEOUT} -> Record
+  ^${ACCT_IDX}\s+(${ACCT_ACTIVE}\s+)?${ACCT_TYPE}\s+${ACCT_ADDRESS}\s+${ACCT_PORT}\s+${ACCT_STATE}\s+${ACCT_TIMEOUT}\s+${ACCT_MGMT_TIMEOUT} -> Record
