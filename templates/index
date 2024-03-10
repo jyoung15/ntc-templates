@@ -287,6 +287,7 @@ cisco_wlc_ssh_show_wlan_summary.textfsm, .*, cisco_wlc_ssh, show wlan summary
 cisco_wlc_ssh_show_acl_summary.textfsm, .*, cisco_wlc_ssh, show acl summary
 cisco_wlc_ssh_show_snmpversion.textfsm, .*, cisco_wlc_ssh, show snmpversion
 cisco_wlc_ssh_show_sysinfo.textfsm, .*, cisco_wlc_ssh, sh[[ow]] sysi[[nfo]]
+cisco_wlc_ssh_show_dhcp_proxy.textfsm, .*, cisco_wlc_ssh, show dhcp proxy
 cisco_wlc_ssh_show_snmpv3user.textfsm, .*, cisco_wlc_ssh, show snmpv3user
 cisco_wlc_ssh_show_trapflags.textfsm, .*, cisco_wlc_ssh, show trapflags
 cisco_wlc_ssh_show_aaa_auth.textfsm, .*, cisco_wlc_ssh, show aaa auth

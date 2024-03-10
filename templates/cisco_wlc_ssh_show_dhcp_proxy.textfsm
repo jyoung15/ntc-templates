@@ -1,0 +1,4 @@
+Value Required DHCP_PROXY (enabled|disabled)
+
+Start
+  ^DHCP Proxy Behaviour:\s+${DHCP_PROXY}
