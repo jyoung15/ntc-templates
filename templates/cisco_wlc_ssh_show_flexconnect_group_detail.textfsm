@@ -69,6 +69,7 @@ RadiusServers
   ^\s+Primary\s+${GROUP_RADIUS_PRIMARY_SERVER}\s+${GROUP_RADIUS_PRIMARY_PORT}
   ^\s+Secondary\s+${GROUP_RADIUS_SECONDARY_SERVER}\s+${GROUP_RADIUS_SECONDARY_PORT}
   ^Group Radius/Local Auth Parameters -> GroupAuthParams
+  ^Group Radius AP Settings -> RadiusSettings
 
 
 GroupAuthParams
