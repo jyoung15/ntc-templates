@@ -1,4 +1,4 @@
-Value Key,Required INTERFACE_NAME (\S+)
+Value Key,Required INTERFACE_NAME (.+?)
 Value MAC_ADDRESS (([0-9a-f]{2}:){5}[0-9a-f]{2})
 Value IP_ADDRESS (\d+.\d+.\d+.\d+)
 Value NETMASK (\d+.\d+.\d+.\d+)
