@@ -1,0 +1,46 @@
+Value Required,Key INDEX (\d+)
+Value Required ADDRESS (\d+\.\d+\.\d+\.\d+)
+Value MSG_ROUND_TRIP_TIME (\d+)
+Value AVERAGE_MSG_ROUND_TRIP_TIME (\d+)
+Value EXPONENTIAL_MSG_ROUND_TRIP_TIME (\d+)
+Value FIRST_REQUESTS (\d+)
+Value RETRY_REQUESTS (\d+)
+Value ACCEPT_RESPONSES (\d+)
+Value REJECT_RESPONSES (\d+)
+Value CHALLENGE_RESPONSES (\d+)
+Value MALFORMED_MSGS (\d+)
+Value BAD_AUTHENTICATOR_MSGS (\d+)
+Value PENDING_REQUESTS (\d+)
+Value TIMEOUT_REQUESTS (\d+)
+Value CONSECUTIVE_DROPS (\d+)
+Value UNKNOWNTYPE_MSGS (\d+)
+Value OTHER_DROPS (\d+)
+Value AUTHZ_REQUESTS (\d+)
+Value AUTHZ_ACCEPT_RESPONSES (\d+)
+Value AUTHZ_REJECT_RESPONSES (\d+)
+
+
+Start
+  ^Server Index\s*\.+\s*${INDEX} -> Server
+
+Server
+  ^Server Address\s*\.+\s*${ADDRESS}
+  ^Msg Round Trip Time\s*\.+\s*${MSG_ROUND_TRIP_TIME}
+  ^Average Msg Round Trip Time\s*\.+\s*${AVERAGE_MSG_ROUND_TRIP_TIME}
+  ^Exponential Msg Round Trip Time\s*\.+\s*${EXPONENTIAL_MSG_ROUND_TRIP_TIME}
+  ^First Requests\s*\.+\s*${FIRST_REQUESTS}
+  ^Retry Requests\s*\.+\s*${RETRY_REQUESTS}
+  ^Accept Responses\s*\.+\s*${ACCEPT_RESPONSES}
+  ^Reject Responses\s*\.+\s*${REJECT_RESPONSES}
+  ^Challenge Responses\s*\.+\s*${CHALLENGE_RESPONSES}
+  ^Malformed Msgs\s*\.+\s*${MALFORMED_MSGS}
+  ^Bad Authenticator Msgs\s*\.+\s*${BAD_AUTHENTICATOR_MSGS}
+  ^Pending Requests\s*\.+\s*${PENDING_REQUESTS}
+  ^Timeout Requests\s*\.+\s*${TIMEOUT_REQUESTS}
+  ^Consecutive Drops \s*\.+\s*${CONSECUTIVE_DROPS}
+  ^Unknowntype Msgs\s*\.+\s*${UNKNOWNTYPE_MSGS}
+  ^Other Drops\s*\.+\s*${OTHER_DROPS}
+  ^AuthZ Requests\s*\.+\s*${AUTHZ_REQUESTS}
+  ^AuthZ Accept Responses\s*\.+\s*${AUTHZ_ACCEPT_RESPONSES}
+  ^AuthZ Reject Responses\s*\.+\s*${AUTHZ_REJECT_RESPONSES}
+  ^\s*$$ -> Record Start

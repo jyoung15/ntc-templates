@@ -270,6 +270,7 @@ cisco_wlc_ssh_show_interface_group_detailed.textfsm, .*, cisco_wlc_ssh, show int
 cisco_wlc_ssh_show_ap_config_general.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ap con[[fig]] ge[[neral]]
 cisco_wlc_ssh_show_interface_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] int[[erface]] s[[ummary]]
 cisco_wlc_ssh_show_client_ap_802.11.textfsm, .*, cisco_wlc_ssh, sh[[ow]] client ap 802.11[ab] \S+
+cisco_wlc_ssh_show_radius_auth_statistics.textfsm, .*, cisco_wlc_ssh, show radius auth statistics
 cisco_wlc_ssh_show_ap_auto-rf_802.11a.textfsm, .*, cisco_wlc_ssh, show ap auto-rf 802.11[ab] \S+
 cisco_wlc_ssh_show_mobility_sum.textfsm, .*, cisco_wlc_ssh, sh[[ow]] mo[[bility]] su[[mmary]]
 cisco_wlc_ssh_show_tacacs_summary.textfsm, .*, cisco_wlc_ssh, sh[[ow]] ta[[cacs]] s[[ummary]]
